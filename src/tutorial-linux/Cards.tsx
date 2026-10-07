@@ -39,8 +39,6 @@ const Body: React.FC<{ id: string }> = ({ id }) => {
         <Item icon="🔑">A key or subscription from an AI provider</Item>
         <Item icon="⏱" c={C.dim}>About 2 minutes, one paste</Item>
       </>);
-    case "fail-glibc":
-      return <Fail err="GLIBC_2.39 not found" why="Older than glibc 2.39 is not supported" fix="Use Ubuntu 24.04 or newer" />;
     case "fail-gzip":
       return <Fail err="gzip: unexpected end of file" why="The version lookup came back empty" fix="Wait a moment, then paste the block again" />;
     case "fail-gomp":

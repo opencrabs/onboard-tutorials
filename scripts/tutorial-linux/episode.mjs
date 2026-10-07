@@ -7,7 +7,6 @@ export const PROMPT = "you@ubuntu:~$ ";
 const REL = "https://github.com/opencrabs/opencrabs/releases/download/${TAG}";
 
 export const CMD = {
-  ldd: "ldd --version",
   sudo: 'echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs',
   apt: "sudo apt update && sudo apt install -y curl jq libgomp1",
   tag: "TAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)",
@@ -28,28 +27,12 @@ export const CHAPTERS = [
     n: 0, title: "Intro", copy: null,
     beats: [
       { vo: { id: "c0a", say: "In this video, we'll install OpenCrabs on Ubuntu with a single paste, from zero to your first chat." },
-        act: [{ card: "need", dur: 12.5 }] },
-      { vo: { id: "c0b", say: "You need Ubuntu 24.04 or newer on a 64-bit machine, an internet connection, and a key or subscription from an AI provider." } },
+        act: [{ card: "need", dur: 7.0 }] },
       { vo: { id: "c0c", say: "Open a terminal. On the Ubuntu desktop, press Control, Alt and T." }, act: [{ wait: 3.4 }, { prompt: true }] },
     ],
   },
   {
-    n: 1, title: "Check your system",
-    beats: [
-      { vo: { id: "c1c", say: "First, one quick check. Your glibc version must be 2.39 or newer." },
-        act: [{ wait: 0.4 }, { cmd: CMD.ldd }, { out: [
-          "ldd (Ubuntu GLIBC 2.39-0ubuntu8.9) 2.39",
-          "Copyright (C) 2024 Free Software Foundation, Inc.",
-          "This is free software; see the source for copying conditions.  There is NO",
-          "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
-          "Written by Roland McGrath and Ulrich Drepper.",
-        ] }, { zoom: "GLIBC 2.39", dur: 7.5, note: "2.39 or newer: good" }] },
-      { vo: { id: "c1d", say: "Here it says 2.39, so we're good. Older than that isn't supported. OpenCrabs only ships builds for 2.39 and newer." },
-        act: [{ wait: 3.2 }, { card: "fail-glibc", dur: 5.2 }] },
-    ],
-  },
-  {
-    n: 2, title: "No more password prompts", copy: CMD.sudo,
+    n: 1, title: "No more password prompts", copy: CMD.sudo,
     beats: [
       { vo: { id: "s2a", say: "Next, one line so OpenCrabs never has to stop and ask for your password. Copy it from the description, paste it, and press Enter." },
         act: [{ card: "sudo", dur: "beat" }] },
@@ -60,7 +43,7 @@ export const CHAPTERS = [
     ],
   },
   {
-    n: 3, title: "Paste the install block", copy: BLOCK,
+    n: 2, title: "Paste the install block", copy: BLOCK,
     beats: [
       { vo: { id: "p2a", say: "Now the whole install is one paste. Copy this block from the docs or the description, paste it into the terminal, and press Enter." },
         act: [{ card: "block", dur: 9.5 }] },
@@ -86,7 +69,7 @@ export const CHAPTERS = [
     ],
   },
   {
-    n: 4, title: "The setup wizard", copy: null,
+    n: 3, title: "The setup wizard", copy: null,
     beats: [
       { vo: { id: "c7b", say: "The setup wizard opens. Choose QuickStart, the sensible defaults, and press Enter." }, act: [{ screen: "wiz-mode", dur: 0.1 }] },
       { vo: { id: "c7c", say: "Home Base is the dot opencrabs folder in your home directory. That's always the default. Keep Seed template files ticked. We recommend it: those files give your crab its personality, so you start with the complete crab. You can change them later if you want. Press Enter." },
@@ -113,7 +96,7 @@ export const CHAPTERS = [
     ],
   },
   {
-    n: 5, title: "What's next", copy: null,
+    n: 4, title: "What's next", copy: null,
     beats: [
       { vo: { id: "c9a", say: "Every command from this video is in the description, ready to copy." }, act: [{ card: "next", dur: 999 }] },
       { vo: { id: "c9b", say: "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone. See you there." } },

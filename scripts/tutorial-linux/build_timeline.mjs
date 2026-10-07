@@ -97,18 +97,15 @@ ${chapterList}
 
 Needs Ubuntu 24.04 or newer (glibc 2.39+), 64-bit.
 
-1. Check your system (glibc 2.39 or newer; older is not supported)
-${block(CMD.ldd)}
-2. Skip password prompts (recommended; skip it if you are already root)
+1. Skip password prompts (recommended; skip it if you are already root)
 ${block(CMD.sudo)}
-3. Paste the install block (Linux amd64)
+2. Paste the install block (Linux amd64)
 ${block(BLOCK)}
 ARM (arm64): use the same block with amd64 replaced by arm64, or copy "Linux (arm64)" from the docs.
-4. Next time, start it from your home folder
+3. Next time, start it from your home folder
 ${block(CMD.run)}
 
 Troubleshooting:
-- \`GLIBC_2.39 not found\`: the system is older than glibc 2.39, which is not supported.
 - \`gzip: unexpected end of file\`: the version lookup came back empty. Wait a moment, then paste the block again.
 - \`libgomp.so.1: cannot open shared object file\`: the helpers did not install. Paste the block again.
 
