@@ -4,7 +4,10 @@
   "scripts": {
     "studio": "remotion studio",
     "vo": "bash scripts/vo.sh",
-    "audio": "node scripts/gen_audio.mjs",
+    "vo-lines": "node scripts/engine/vo_lines.mjs",
+    "fit": "bash scripts/engine/fit.sh",
+    "timeline": "node scripts/engine/build_timeline.mjs",
+    "probe": "node scripts/engine/probe.mjs",
     "render": "remotion render TutorialLinuxL1 out/tutorial-linux/L1-ubuntu.mp4"
   },
   "dependencies": {
