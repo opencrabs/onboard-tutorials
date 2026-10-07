@@ -48,7 +48,8 @@ const ZAI = PROVIDERS.indexOf("z.ai");
 const MODELS = ["glm-5.3", "glm-5.3-flash", "glm-5.2"];
 const CHECKS = ["API Key Present", "Config File", "Workspace Directory", "Template Files"];
 
-export type WizardOS = { home: string; daemon: string };
+// keyAt: seconds into the key screen before the masked key starts typing (a fast-forwarded wizard types it sooner).
+export type WizardOS = { home: string; daemon: string; keyAt?: number };
 
 const Body: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }) => {
   switch (id) {
@@ -68,7 +69,7 @@ const Body: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }
     case "wiz-provider":
     case "wiz-key":
     case "wiz-model": {
-      const keyTyped = id === "wiz-key" ? Math.min(26, Math.max(0, Math.floor((dt - 3.9) * 18))) : 26;
+      const keyTyped = id === "wiz-key" ? Math.min(26, Math.max(0, Math.floor((dt - (os.keyAt ?? 3.9)) * 18))) : 26;
       return (<>
         {id !== "wiz-model" && <Row><S c={K.gray}>   ↑ more</S></Row>}
         {(id === "wiz-model" ? PROVIDERS.slice(ZAI, ZAI + 1) : PROVIDERS).map((p) => {

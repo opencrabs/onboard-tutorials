@@ -16,7 +16,7 @@ const dur = (id) => Number(execFileSync("ffprobe", ["-v", "error", "-show_entrie
 
 const CPS = 32; // typing speed, chars per second
 const typeDur = (s) => Math.min(3.2, Math.max(0.5, s.length / CPS));
-const LEAD = 2.2;      // opening title before the first line
+const LEAD = EP.lead ?? 2.2; // opening title (or hook) before the first line
 const BEAT_GAP = 0.55; // breath after each VO line
 const CHAPTER_GAP = 1.4; // chapter banner breathing room
 const TAIL = 3.0;

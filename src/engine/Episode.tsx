@@ -24,6 +24,7 @@ export type EpisodeConfig = {
   title: React.ReactNode;   // opening title, shown until the prompt opens
   cards: React.FC<{ id: string }>;
   overlays?: React.FC<{ t: number }>; // episode-specific extras drawn over the terminal (e.g. a keyboard shortcut)
+  hook?: { screen: string; dt: number; until: number }; // open on the payoff: this screen, frozen at dt, until `until` seconds
 };
 
 const Ctx = createContext<{ cfg: EpisodeConfig; s: State } | null>(null);
@@ -156,9 +157,24 @@ const ChapterBanner: React.FC<{ t: number }> = ({ t }) => {
   );
 };
 
+// The episode's end state shown first, then a rewind into the steps.
+const Hook: React.FC<{ t: number }> = ({ t }) => {
+  const { cfg } = useEpisode();
+  const h = cfg.hook!;
+  const o = interpolate(t, [h.until - 0.35, h.until], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <div style={{ position: "absolute", left: TERM.left, top: TERM.top, width: TERM.width, height: TERM.height, borderRadius: 14, overflow: "hidden", background: cfg.skin.bg, border: `1px solid ${cfg.skin.border}`, boxShadow: "0 30px 90px rgba(0,0,0,.55)", opacity: o }}>
+      <cfg.skin.bar title={cfg.skin.title} height={TERM.bar} />
+      <div style={{ position: "absolute", top: TERM.bar, left: 0, right: 0, bottom: 0 }}><Wizard id={h.screen} dt={h.dt} os={cfg.os} /></div>
+      <div style={{ position: "absolute", left: 24, top: TERM.bar + 18, background: O, color: "#fff", fontFamily: SANS, fontWeight: 800, fontSize: 28, padding: "8px 22px", borderRadius: 24 }}>where you'll be in 2 minutes</div>
+      <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 150, opacity: interpolate(t, [h.until - 0.9, h.until - 0.5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>⏪</div>
+    </div>
+  );
+};
+
 const Title: React.FC<{ t: number }> = ({ t }) => {
   const { cfg, s } = useEpisode();
-  if (t > s.promptOpenAt() + 0.6 || s.activeOf(t, "card")) return null;
+  if (t > s.promptOpenAt() + 0.6 || s.activeOf(t, "card") || (cfg.hook && t < cfg.hook.until)) return null;
   return <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", fontFamily: SANS, textAlign: "center" }}>{cfg.title}</AbsoluteFill>;
 };
 
@@ -172,6 +188,7 @@ export const Episode: React.FC<{ cfg: EpisodeConfig }> = ({ cfg }) => {
     <Ctx.Provider value={{ cfg, s }}>
       <AbsoluteFill style={{ background: `radial-gradient(ellipse at 30% 20%, #2a1630 0%, ${C.bg} 60%)` }}>
         <Audio src={staticFile(cfg.audio)} />
+        {cfg.hook && t < cfg.hook.until && <Hook t={t} />}
         <Title t={t} />
         <TopBar t={t} />
         <Terminal t={t} />
