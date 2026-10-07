@@ -136,7 +136,7 @@ export const CHAPTERS = [
       { vo: { id: "c7a", say: "Time for the first run. Type opencrabs and press Enter." },
         act: [{ wait: 0.3 }, { cmd: CMD.run }, { wait: 0.4 }, { screen: "wiz-mode", dur: 0.1 }] },
       { vo: { id: "c7b", say: "The setup wizard opens. Choose QuickStart, the sensible defaults, and press Enter." }, act: [{ wait: 0.1 }] },
-      { vo: { id: "c7c", say: "Home Base is the dot opencrabs folder in your home directory. That's always the default. Keep Seed template files ticked. Those files give your crab its personality, and you can change them later. Press Enter." },
+      { vo: { id: "c7c", say: "Home Base is the dot opencrabs folder in your home directory. That's always the default. Keep Seed template files ticked. We recommend it: those files give your crab its personality, so you start with the complete crab. You can change them later if you want. Press Enter." },
         act: [{ screen: "wiz-home", dur: 0.1 }] },
       { vo: { id: "c7d", say: "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic." },
         act: [{ screen: "wiz-provider", dur: 0.1 }] },
