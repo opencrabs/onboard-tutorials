@@ -182,7 +182,7 @@ export const Tutorial: React.FC = () => {
       <Terminal t={t} />
       <Side t={t} />
       <ChapterBanner t={t} />
-      {card && <div style={{ position: "absolute", left: TERM.left, top: TERM.top, width: TERM.width, height: TERM.height, borderRadius: 14, overflow: "hidden" }}><Card id={card.card!} at={card.at} t={t} /></div>}
+      {card && <div style={{ position: "absolute", left: TERM.left, top: TERM.top, width: TERM.width, height: TERM.height, borderRadius: 14, overflow: "hidden" }}><Card id={card.card!} at={card.at} /></div>}
       <Shortcut t={t} />
       <Subtitle t={t} />
     </AbsoluteFill>

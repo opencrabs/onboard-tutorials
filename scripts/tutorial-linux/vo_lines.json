@@ -17,7 +17,19 @@
  },
  {
   "id": "c1d",
-  "text": "Here it says 2.39, so we're good. Older than that? This download won't run there, so watch the older systems video instead."
+  "text": "Here it says 2.39, so we're good. Older than that isn't supported. OpenCrabs only ships builds for 2.39 and newer."
+ },
+ {
+  "id": "s2a",
+  "text": "Next, one line so OpenCrabs never has to stop and ask for your password. Copy it from the description, paste it, and press Enter."
+ },
+ {
+  "id": "s2b",
+  "text": "Ubuntu asks for your password one last time. Nothing appears while you type it. That's normal. Type it and press Enter."
+ },
+ {
+  "id": "s2c",
+  "text": "Already logged in as root, on a server for example? Skip this line and paste the install block as it is."
  },
  {
   "id": "p2a",
@@ -28,12 +40,16 @@
   "text": "On an ARM machine, copy the arm64 block from the docs instead. It's the same, with arm64 in the file name."
  },
  {
-  "id": "c2b",
-  "text": "Ubuntu asks for your password. Nothing appears while you type it. That's normal. Type it and press Enter."
+  "id": "p2c",
+  "text": "This time there's no password prompt. It does everything in one go. It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
  },
  {
-  "id": "p2c",
-  "text": "Then it does everything in one go. It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
+  "id": "f3a",
+  "text": "If you see gzip, unexpected end of file, here instead, the version lookup came back empty. Wait a moment, then paste the block again."
+ },
+ {
+  "id": "f3b",
+  "text": "If it stops at libgomp dot so dot one, cannot open shared object file, the helpers didn't install. Paste the block again."
  },
  {
   "id": "c7b",
@@ -78,22 +94,6 @@
  {
   "id": "p3a",
   "text": "Next time, start it the same way. Open a terminal in your home folder, and type dot slash opencrabs, then press Enter."
- },
- {
-  "id": "c8a",
-  "text": "If something goes wrong, here are the three errors people hit most, and the fix for each."
- },
- {
-  "id": "c8b",
-  "text": "GLIBC 2.39 not found means your system is too old for this download. Watch the older systems video instead."
- },
- {
-  "id": "p4c",
-  "text": "libgomp.so.1, cannot open shared object file, means the helpers are missing. Paste the install block again."
- },
- {
-  "id": "p4d",
-  "text": "gzip, unexpected end of file, means the version lookup came back empty. Wait a moment, then paste the block again."
  },
  {
   "id": "c9a",

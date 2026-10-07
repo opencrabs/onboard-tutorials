@@ -29,6 +29,7 @@ for (const ch of CHAPTERS) {
     const d = dur(b.vo.id);
     vo.push({ id: b.vo.id, start, dur: d, sub: b.vo.sub ?? b.vo.say });
     let a = start;
+    const toBeat = [];
     for (const act of b.act ?? []) {
       const rec = { ...act, at: a, chapter: ch.n };
       if (act.cmd) { rec.type = act.paste ? 0.12 : typeDur(act.cmd); a += rec.type + (act.paste ? 0.25 : 0.35); }
@@ -36,9 +37,11 @@ for (const ch of CHAPTERS) {
       else if (act.pw) a += 1.2;
       else if (act.wait) a += act.wait;
       else if (act.screen) a += act.dur;
+      if (act.dur === "beat") toBeat.push(rec);
       actions.push(rec);
     }
     const end = Math.max(start + d + BEAT_GAP, a + 0.3);
+    for (const rec of toBeat) rec.dur = end - rec.at;
     beats.push({ chapter: ch.n, id: b.vo.id, start, end, copy: b.copy ?? null });
     t = end;
   }
@@ -76,7 +79,7 @@ for (const v of vo) {
   }
 }
 
-fs.writeFileSync(ROOT + "src/tutorial-linux/timeline.json", JSON.stringify({ fps: 30, total, prompt: PROMPT, block: BLOCK, chapters, beats, actions, vo, cues }, null, 1));
+fs.writeFileSync(ROOT + "src/tutorial-linux/timeline.json", JSON.stringify({ fps: 30, total, prompt: PROMPT, block: BLOCK, sudo: CMD.sudo, chapters, beats, actions, vo, cues }, null, 1));
 
 const ts = (x, sep = ",") => {
   const ms = Math.round(x * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, s = Math.floor(ms / 1000) % 60;
@@ -94,13 +97,20 @@ ${chapterList}
 
 Needs Ubuntu 24.04 or newer (glibc 2.39+), 64-bit.
 
-1. Check your system
+1. Check your system (glibc 2.39 or newer; older is not supported)
 ${block(CMD.ldd)}
-2. Paste the install block (Linux amd64)
+2. Skip password prompts (recommended; skip it if you are already root)
+${block(CMD.sudo)}
+3. Paste the install block (Linux amd64)
 ${block(BLOCK)}
 ARM (arm64): use the same block with amd64 replaced by arm64, or copy "Linux (arm64)" from the docs.
-3. Next time, start it from your home folder
+4. Next time, start it from your home folder
 ${block(CMD.run)}
+
+Troubleshooting:
+- \`GLIBC_2.39 not found\`: the system is older than glibc 2.39, which is not supported.
+- \`gzip: unexpected end of file\`: the version lookup came back empty. Wait a moment, then paste the block again.
+- \`libgomp.so.1: cannot open shared object file\`: the helpers did not install. Paste the block again.
 
 Docs: https://docs.opencrabs.com/getting-started/installation.html
 `);

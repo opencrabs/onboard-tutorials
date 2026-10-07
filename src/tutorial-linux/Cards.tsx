@@ -1,9 +1,8 @@
-// Overlay cards shown over the terminal (need, block, arm, pw, key, again, errors, next).
+// Overlay cards shown over the terminal (need, fail-*, sudo, root-skip, block, arm, pw, key, again, next).
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { C, MONO, SANS } from "../theme";
-import { beatAt } from "./state";
-import { BLOCK_LINES } from "./block";
+import { BLOCK_LINES, CMD_SUDO } from "./block";
 
 const O = "#d76414";
 const Mono: React.FC<{ children: React.ReactNode; c?: string }> = ({ children, c = C.text }) => (
@@ -21,13 +20,16 @@ const Key: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <span style={{ display: "inline-block", fontFamily: SANS, fontWeight: 700, fontSize: 40, color: C.text, background: C.panel2, border: `2px solid ${C.line}`, borderBottomWidth: 6, borderRadius: 12, padding: "6px 22px", margin: "0 8px" }}>{children}</span>
 );
 
-const ERRORS = [
-  { id: "c8b", err: "GLIBC_2.39 not found", fix: "System too old for this download → watch the older-systems video" },
-  { id: "p4c", err: "libgomp.so.1: cannot open shared object file", fix: "Helpers missing → paste the install block again" },
-  { id: "p4d", err: "gzip: unexpected end of file", fix: "Version lookup came back empty → wait a moment, paste the block again" },
-];
+const Fail: React.FC<{ err: string; why: string; fix: string }> = ({ err, why, fix }) => (<>
+  <H>See this instead?</H>
+  <div style={{ padding: "16px 22px", borderRadius: 14, border: `2px solid ${C.red}`, background: C.red + "14", marginBottom: 26 }}>
+    <div style={{ fontFamily: MONO, fontSize: 28, color: C.red }}>{err}</div>
+  </div>
+  <Item icon="?">{why}</Item>
+  <Item icon="✓" c={C.green}>{fix}</Item>
+</>);
 
-const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
+const Body: React.FC<{ id: string }> = ({ id }) => {
   switch (id) {
     case "need":
       return (<>
@@ -36,6 +38,25 @@ const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
         <Item icon="🌐">An internet connection</Item>
         <Item icon="🔑">A key or subscription from an AI provider</Item>
         <Item icon="⏱" c={C.dim}>About 2 minutes, one paste</Item>
+      </>);
+    case "fail-glibc":
+      return <Fail err="GLIBC_2.39 not found" why="Older than glibc 2.39 is not supported" fix="Use Ubuntu 24.04 or newer" />;
+    case "fail-gzip":
+      return <Fail err="gzip: unexpected end of file" why="The version lookup came back empty" fix="Wait a moment, then paste the block again" />;
+    case "fail-gomp":
+      return <Fail err="libgomp.so.1: cannot open shared object file" why="The helpers didn't install" fix="Paste the block again" />;
+    case "sudo":
+      return (<>
+        <H>One line, no more password prompts</H>
+        <Mono>{CMD_SUDO}</Mono>
+        <Item icon="🔓">Lets OpenCrabs use sudo without stopping to ask</Item>
+        <Item icon="📋" c={C.dim}>Recommended · also in the description</Item>
+      </>);
+    case "root-skip":
+      return (<>
+        <H>Already root?</H>
+        <Item icon="#">Prompt ends in <span style={{ fontFamily: MONO, color: O }}>#</span>, like on a fresh server</Item>
+        <Item icon="⏭">Skip this line, paste the install block as it is</Item>
       </>);
     case "block":
       return (<>
@@ -70,21 +91,6 @@ const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
         <Mono c={C.green}>./opencrabs</Mono>
         <Item icon="🦀" c={C.dim}>{" "}Your setup and chats are saved in ~/.opencrabs</Item>
       </>);
-    case "errors": {
-      const cur = beatAt(t).id;
-      return (<>
-        <H>If something breaks</H>
-        {ERRORS.map((e) => {
-          const on = e.id === cur;
-          return (
-            <div key={e.id} style={{ marginBottom: 22, padding: "16px 22px", borderRadius: 14, border: `2px solid ${on ? O : C.line}`, background: on ? O + "1f" : "transparent", opacity: on || cur === "c8a" ? 1 : 0.45 }}>
-              <div style={{ fontFamily: MONO, fontSize: 28, color: C.red }}>{e.err}</div>
-              <div style={{ fontFamily: SANS, fontSize: 30, color: C.text, marginTop: 8 }}>{e.fix}</div>
-            </div>
-          );
-        })}
-      </>);
-    }
     case "next":
       return (<>
         <H>You're installed 🦀</H>
@@ -98,14 +104,14 @@ const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
   }
 };
 
-export const Card: React.FC<{ id: string; at: number; t: number }> = ({ id, at, t }) => {
+export const Card: React.FC<{ id: string; at: number }> = ({ id, at }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = spring({ frame: f - Math.round(at * fps), fps, config: { damping: 18, stiffness: 160 } });
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: `rgba(6,9,14,${0.72 * p})` }}>
       <div style={{ width: 1060, padding: "46px 56px", background: C.panel, border: `2px solid ${O}88`, borderRadius: 26, boxShadow: "0 30px 80px rgba(0,0,0,.5)", opacity: p, transform: `translateY(${interpolate(p, [0, 1], [30, 0])}px)` }}>
-        <Body id={id} t={t} />
+        <Body id={id} />
       </div>
     </div>
   );

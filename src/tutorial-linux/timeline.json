@@ -1,48 +1,49 @@
 {
  "fps": 30,
- "total": 225.30437700000016,
+ "total": 232.7214050000001,
  "prompt": "you@ubuntu:~$ ",
  "block": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs",
+ "sudo": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs",
  "chapters": [
   {
    "n": 0,
    "title": "Intro",
    "start": 2.2,
-   "end": 25.442177000000004,
+   "end": 25.438662000000004,
    "copy": null
   },
   {
    "n": 1,
    "title": "Check your system",
-   "start": 26.842177000000003,
-   "end": 43.401156
+   "start": 26.838662000000003,
+   "end": 45.430022
   },
   {
    "n": 2,
-   "title": "Paste the install block",
-   "start": 44.801156,
-   "end": 82.02371899999999,
-   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
+   "title": "No more password prompts",
+   "start": 46.830022,
+   "end": 73.92575799999999,
+   "copy": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs"
   },
   {
    "n": 3,
-   "title": "The setup wizard",
-   "start": 83.42371899999999,
-   "end": 169.64324300000007,
-   "copy": null
+   "title": "Paste the install block",
+   "start": 75.325758,
+   "end": 127.60689199999997,
+   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
   },
   {
    "n": 4,
-   "title": "If something breaks",
-   "start": 171.04324300000007,
-   "end": 207.80630400000013,
-   "copy": "ldd --version"
+   "title": "The setup wizard",
+   "start": 129.00689199999997,
+   "end": 215.22333200000006,
+   "copy": null
   },
   {
    "n": 5,
    "title": "What's next",
-   "start": 209.20630400000013,
-   "end": 222.30437700000016,
+   "start": 216.62333200000006,
+   "end": 229.7214050000001,
    "copy": null
   }
  ],
@@ -51,182 +52,182 @@
    "chapter": 0,
    "id": "c0a",
    "start": 2.2,
-   "end": 9.716644,
+   "end": 9.713129000000002,
    "copy": null
   },
   {
    "chapter": 0,
    "id": "c0b",
-   "start": 9.716644,
-   "end": 19.954490000000003,
+   "start": 9.713129000000002,
+   "end": 19.950975000000003,
    "copy": null
   },
   {
    "chapter": 0,
    "id": "c0c",
-   "start": 19.954490000000003,
-   "end": 25.442177000000004,
+   "start": 19.950975000000003,
+   "end": 25.438662000000004,
    "copy": null
   },
   {
    "chapter": 1,
    "id": "c1c",
-   "start": 26.842177000000003,
-   "end": 33.28356,
+   "start": 26.838662000000003,
+   "end": 33.279138,
    "copy": "ldd --version"
   },
   {
    "chapter": 1,
    "id": "c1d",
-   "start": 33.28356,
-   "end": 43.401156,
+   "start": 33.279138,
+   "end": 45.430022,
    "copy": "ldd --version"
   },
   {
    "chapter": 2,
+   "id": "s2a",
+   "start": 46.830022,
+   "end": 56.783286999999994,
+   "copy": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "s2b",
+   "start": 56.783286999999994,
+   "end": 66.37591699999999,
+   "copy": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "s2c",
+   "start": 66.37591699999999,
+   "end": 73.92575799999999,
+   "copy": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs"
+  },
+  {
+   "chapter": 3,
    "id": "p2a",
-   "start": 44.801156,
-   "end": 55.046575999999995,
+   "start": 75.325758,
+   "end": 85.562969,
    "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
   },
   {
-   "chapter": 2,
+   "chapter": 3,
    "id": "p2b",
-   "start": 55.046575999999995,
-   "end": 65.087914,
+   "start": 85.562969,
+   "end": 95.60290099999999,
    "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
   },
   {
-   "chapter": 2,
-   "id": "c2b",
-   "start": 65.087914,
-   "end": 73.03129299999999,
-   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
-  },
-  {
-   "chapter": 2,
+   "chapter": 3,
    "id": "p2c",
-   "start": 73.03129299999999,
-   "end": 82.02371899999999,
+   "start": 95.60290099999999,
+   "end": 107.75115499999998,
    "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
   },
   {
    "chapter": 3,
+   "id": "f3a",
+   "start": 107.75115499999998,
+   "end": 118.21591699999998,
+   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
+  },
+  {
+   "chapter": 3,
+   "id": "f3b",
+   "start": 118.21591699999998,
+   "end": 127.60689199999997,
+   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
+  },
+  {
+   "chapter": 4,
    "id": "c7b",
-   "start": 83.42371899999999,
-   "end": 90.19814099999999,
+   "start": 129.00689199999997,
+   "end": 135.78131399999998,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7c",
-   "start": 90.19814099999999,
-   "end": 108.19274399999999,
+   "start": 135.78131399999998,
+   "end": 153.775917,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7d",
-   "start": 108.19274399999999,
-   "end": 115.63108899999999,
+   "start": 153.775917,
+   "end": 161.214262,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7e",
-   "start": 115.63108899999999,
-   "end": 125.48546499999999,
+   "start": 161.214262,
+   "end": 171.068638,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7f",
-   "start": 125.48546499999999,
-   "end": 130.833152,
+   "start": 171.068638,
+   "end": 176.416325,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7g",
-   "start": 130.833152,
-   "end": 138.28498900000002,
+   "start": 176.416325,
+   "end": 183.868162,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7h",
-   "start": 138.28498900000002,
-   "end": 143.72657600000002,
+   "start": 183.868162,
+   "end": 189.309749,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7i",
-   "start": 143.72657600000002,
-   "end": 149.80680300000003,
+   "start": 189.309749,
+   "end": 195.38997600000002,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7j",
-   "start": 149.80680300000003,
-   "end": 153.37952400000003,
+   "start": 195.38997600000002,
+   "end": 198.96269700000002,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "c7k",
-   "start": 153.37952400000003,
-   "end": 160.74902500000005,
+   "start": 198.96269700000002,
+   "end": 206.33219800000003,
    "copy": null
   },
   {
-   "chapter": 3,
+   "chapter": 4,
    "id": "p3a",
-   "start": 160.74902500000005,
-   "end": 169.64324300000007,
+   "start": 206.33219800000003,
+   "end": 215.22333200000006,
    "copy": null
-  },
-  {
-   "chapter": 4,
-   "id": "c8a",
-   "start": 171.04324300000007,
-   "end": 177.9156690000001,
-   "copy": "ldd --version"
-  },
-  {
-   "chapter": 4,
-   "id": "c8b",
-   "start": 177.9156690000001,
-   "end": 188.3061910000001,
-   "copy": "ldd --version"
-  },
-  {
-   "chapter": 4,
-   "id": "p4c",
-   "start": 188.3061910000001,
-   "end": 198.66737000000012,
-   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
-  },
-  {
-   "chapter": 4,
-   "id": "p4d",
-   "start": 198.66737000000012,
-   "end": 207.80630400000013,
-   "copy": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs"
   },
   {
    "chapter": 5,
    "id": "c9a",
-   "start": 209.20630400000013,
-   "end": 214.17653100000015,
+   "start": 216.62333200000006,
+   "end": 221.59355900000008,
    "copy": null
   },
   {
    "chapter": 5,
    "id": "c9b",
-   "start": 214.17653100000015,
-   "end": 222.30437700000016,
+   "start": 221.59355900000008,
+   "end": 229.7214050000001,
    "copy": null
   }
  ],
@@ -239,22 +240,22 @@
   },
   {
    "wait": 3.4,
-   "at": 19.954490000000003,
+   "at": 19.950975000000003,
    "chapter": 0
   },
   {
    "prompt": true,
-   "at": 23.354490000000002,
+   "at": 23.350975000000002,
    "chapter": 0
   },
   {
    "wait": 0.4,
-   "at": 26.842177000000003,
+   "at": 26.838662000000003,
    "chapter": 1
   },
   {
    "cmd": "ldd --version",
-   "at": 27.242177,
+   "at": 27.238662,
    "chapter": 1,
    "type": 0.5
   },
@@ -266,7 +267,7 @@
     "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
     "Written by Roland McGrath and Ulrich Drepper."
    ],
-   "at": 28.092177000000003,
+   "at": 28.088662000000003,
    "chapter": 1,
    "gap": 0.07
   },
@@ -274,43 +275,91 @@
    "zoom": "GLIBC 2.39",
    "dur": 7.5,
    "note": "2.39 or newer: good",
-   "at": 28.592177000000003,
+   "at": 28.588662000000003,
    "chapter": 1
   },
   {
-   "card": "block",
-   "dur": 9.5,
-   "at": 44.801156,
-   "chapter": 2
+   "wait": 3.2,
+   "at": 33.279138,
+   "chapter": 1
   },
   {
-   "card": "arm",
-   "dur": 8.5,
-   "at": 55.046575999999995,
+   "card": "fail-glibc",
+   "dur": 5.2,
+   "at": 36.479138000000006,
+   "chapter": 1
+  },
+  {
+   "card": "sudo",
+   "dur": 9.953264999999995,
+   "at": 46.830022,
    "chapter": 2
   },
   {
    "wait": 0.3,
-   "at": 65.087914,
+   "at": 56.783286999999994,
    "chapter": 2
   },
   {
-   "cmd": "sudo apt update && sudo apt install -y curl jq libgomp1",
+   "cmd": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs",
    "paste": true,
-   "at": 65.387914,
+   "at": 57.08328699999999,
    "chapter": 2,
    "type": 0.12
   },
   {
    "pw": true,
-   "at": 65.757914,
+   "at": 57.45328699999999,
    "chapter": 2
   },
   {
    "card": "pw",
-   "dur": 6.5,
-   "at": 66.957914,
+   "dur": 6,
+   "at": 58.65328699999999,
    "chapter": 2
+  },
+  {
+   "wait": 0.4,
+   "at": 58.65328699999999,
+   "chapter": 2
+  },
+  {
+   "out": [
+    "you ALL=(ALL) NOPASSWD:ALL"
+   ],
+   "at": 59.05328699999999,
+   "chapter": 2,
+   "gap": 0.07
+  },
+  {
+   "card": "root-skip",
+   "dur": 7.549841000000001,
+   "at": 66.37591699999999,
+   "chapter": 2
+  },
+  {
+   "card": "block",
+   "dur": 9.5,
+   "at": 75.325758,
+   "chapter": 3
+  },
+  {
+   "card": "arm",
+   "dur": 8.5,
+   "at": 85.562969,
+   "chapter": 3
+  },
+  {
+   "wait": 0.3,
+   "at": 95.60290099999999,
+   "chapter": 3
+  },
+  {
+   "cmd": "sudo apt update && sudo apt install -y curl jq libgomp1",
+   "paste": true,
+   "at": 95.90290099999999,
+   "chapter": 3,
+   "type": 0.12
   },
   {
    "out": [
@@ -324,127 +373,128 @@
     "Setting up curl (8.5.0-2ubuntu10.15) ..."
    ],
    "gap": 0.22,
-   "at": 73.03129299999999,
-   "chapter": 2
+   "at": 96.27290099999999,
+   "chapter": 3
   },
   {
    "cmd": "TAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)",
    "paste": true,
-   "at": 74.94129299999999,
-   "chapter": 2,
+   "at": 98.18290099999999,
+   "chapter": 3,
    "type": 0.12
   },
   {
    "cmd": "curl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz",
    "paste": true,
-   "at": 75.31129299999999,
-   "chapter": 2,
+   "at": 98.55290099999999,
+   "chapter": 3,
    "type": 0.12
   },
   {
    "wait": 1.6,
-   "at": 75.681293,
-   "chapter": 2
+   "at": 98.922901,
+   "chapter": 3
+  },
+  {
+   "card": "fail-gzip",
+   "dur": 10.464761999999993,
+   "at": 107.75115499999998,
+   "chapter": 3
   },
   {
    "cmd": "./opencrabs",
    "paste": true,
-   "at": 77.28129299999999,
-   "chapter": 2,
+   "at": 118.21591699999998,
+   "chapter": 3,
    "type": 0.12
   },
   {
-   "wait": 1.2,
-   "at": 77.651293,
-   "chapter": 2
+   "card": "fail-gomp",
+   "dur": 9.020974999999993,
+   "at": 118.58591699999998,
+   "chapter": 3
   },
   {
    "screen": "wiz-mode",
    "dur": 0.1,
-   "at": 83.42371899999999,
-   "chapter": 3
+   "at": 129.00689199999997,
+   "chapter": 4
   },
   {
    "screen": "wiz-home",
    "dur": 0.1,
-   "at": 90.19814099999999,
-   "chapter": 3
+   "at": 135.78131399999998,
+   "chapter": 4
   },
   {
    "screen": "wiz-provider",
    "dur": 0.1,
-   "at": 108.19274399999999,
-   "chapter": 3
+   "at": 153.775917,
+   "chapter": 4
   },
   {
    "screen": "wiz-key",
    "dur": 0.1,
-   "at": 115.63108899999999,
-   "chapter": 3
+   "at": 161.214262,
+   "chapter": 4
   },
   {
    "card": "key",
    "dur": 9.5,
-   "at": 115.73108899999998,
-   "chapter": 3
+   "at": 161.31426199999999,
+   "chapter": 4
   },
   {
    "screen": "wiz-model",
    "dur": 0.1,
-   "at": 125.48546499999999,
-   "chapter": 3
+   "at": 171.068638,
+   "chapter": 4
   },
   {
    "screen": "wiz-daemon",
    "dur": 0.1,
-   "at": 130.833152,
-   "chapter": 3
+   "at": 176.416325,
+   "chapter": 4
   },
   {
    "screen": "wiz-health",
    "dur": 0.1,
-   "at": 138.28498900000002,
-   "chapter": 3
+   "at": 183.868162,
+   "chapter": 4
   },
   {
    "screen": "wiz-brain",
    "dur": 0.1,
-   "at": 143.72657600000002,
-   "chapter": 3
+   "at": 189.309749,
+   "chapter": 4
   },
   {
    "screen": "wiz-done",
    "dur": 2.6,
-   "at": 149.80680300000003,
-   "chapter": 3
+   "at": 195.38997600000002,
+   "chapter": 4
   },
   {
    "screen": "chat",
    "dur": 0.1,
-   "at": 152.40680300000002,
-   "chapter": 3
+   "at": 197.989976,
+   "chapter": 4
   },
   {
    "wait": 3.5,
-   "at": 153.37952400000003,
-   "chapter": 3
+   "at": 198.96269700000002,
+   "chapter": 4
   },
   {
    "card": "again",
    "dur": 999,
-   "at": 160.74902500000005,
-   "chapter": 3
-  },
-  {
-   "card": "errors",
-   "dur": 999,
-   "at": 171.04324300000007,
+   "at": 206.33219800000003,
    "chapter": 4
   },
   {
    "card": "next",
    "dur": 999,
-   "at": 209.20630400000013,
+   "at": 216.62333200000006,
    "chapter": 5
   }
  ],
@@ -452,156 +502,156 @@
   {
    "id": "c0a",
    "start": 2.2,
-   "dur": 6.966644,
+   "dur": 6.963129,
    "sub": "In this video, we'll install OpenCrabs on Ubuntu with a single paste, from zero to your first chat."
   },
   {
    "id": "c0b",
-   "start": 9.716644,
+   "start": 9.713129000000002,
    "dur": 9.687846,
    "sub": "You need Ubuntu 24.04 or newer on a 64-bit machine, an internet connection, and a key or subscription from an AI provider."
   },
   {
    "id": "c0c",
-   "start": 19.954490000000003,
+   "start": 19.950975000000003,
    "dur": 4.937687,
    "sub": "Open a terminal. On the Ubuntu desktop, press Control, Alt and T."
   },
   {
    "id": "c1c",
-   "start": 26.842177000000003,
-   "dur": 5.891383,
+   "start": 26.838662000000003,
+   "dur": 5.890476,
    "sub": "First, one quick check. Your glibc version must be 2.39 or newer."
   },
   {
    "id": "c1d",
-   "start": 33.28356,
-   "dur": 9.567596,
-   "sub": "Here it says 2.39, so we're good. Older than that? This download won't run there, so watch the older systems video instead."
+   "start": 33.279138,
+   "dur": 11.600884,
+   "sub": "Here it says 2.39, so we're good. Older than that isn't supported. OpenCrabs only ships builds for 2.39 and newer."
+  },
+  {
+   "id": "s2a",
+   "start": 46.830022,
+   "dur": 9.403265,
+   "sub": "Next, one line so OpenCrabs never has to stop and ask for your password. Copy it from the description, paste it, and press Enter."
+  },
+  {
+   "id": "s2b",
+   "start": 56.783286999999994,
+   "dur": 9.04263,
+   "sub": "Ubuntu asks for your password one last time. Nothing appears while you type it. That's normal. Type it and press Enter."
+  },
+  {
+   "id": "s2c",
+   "start": 66.37591699999999,
+   "dur": 6.999841,
+   "sub": "Already logged in as root, on a server for example? Skip this line and paste the install block as it is."
   },
   {
    "id": "p2a",
-   "start": 44.801156,
-   "dur": 9.69542,
+   "start": 75.325758,
+   "dur": 9.687211,
    "sub": "Now the whole install is one paste. Copy this block from the docs or the description, paste it into the terminal, and press Enter."
   },
   {
    "id": "p2b",
-   "start": 55.046575999999995,
-   "dur": 9.491338,
+   "start": 85.562969,
+   "dur": 9.489932,
    "sub": "On an ARM machine, copy the arm64 block from the docs instead. It's the same, with arm64 in the file name."
   },
   {
-   "id": "c2b",
-   "start": 65.087914,
-   "dur": 7.393379,
-   "sub": "Ubuntu asks for your password. Nothing appears while you type it. That's normal. Type it and press Enter."
+   "id": "p2c",
+   "start": 95.60290099999999,
+   "dur": 11.598254,
+   "sub": "This time there's no password prompt. It does everything in one go. It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
   },
   {
-   "id": "p2c",
-   "start": 73.03129299999999,
-   "dur": 8.442426,
-   "sub": "Then it does everything in one go. It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
+   "id": "f3a",
+   "start": 107.75115499999998,
+   "dur": 9.914762,
+   "sub": "If you see gzip: unexpected end of file here instead, the version lookup came back empty. Wait a moment, then paste the block again."
+  },
+  {
+   "id": "f3b",
+   "start": 118.21591699999998,
+   "dur": 8.840975,
+   "sub": "If it stops at libgomp.so.1: cannot open shared object file, the helpers didn't install. Paste the block again."
   },
   {
    "id": "c7b",
-   "start": 83.42371899999999,
+   "start": 129.00689199999997,
    "dur": 6.224422,
    "sub": "The setup wizard opens. Choose QuickStart, the sensible defaults, and press Enter."
   },
   {
    "id": "c7c",
-   "start": 90.19814099999999,
+   "start": 135.78131399999998,
    "dur": 17.444603,
    "sub": "Home Base is the dot opencrabs folder in your home directory. That's always the default. Keep Seed template files ticked. We recommend it: those files give your crab its personality, so you start with the complete crab. You can change them later if you want. Press Enter."
   },
   {
    "id": "c7d",
-   "start": 108.19274399999999,
+   "start": 153.775917,
    "dur": 6.888345,
    "sub": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
   },
   {
    "id": "c7e",
-   "start": 115.63108899999999,
+   "start": 161.214262,
    "dur": 9.304376,
    "sub": "Now paste your API key, or a setup token if you have a Claude subscription. It's hidden on screen. Never share your key with anyone."
   },
   {
    "id": "c7f",
-   "start": 125.48546499999999,
+   "start": 171.068638,
    "dur": 4.797687,
    "sub": "Keep the default model, or pick another one, and press Enter."
   },
   {
    "id": "c7g",
-   "start": 130.833152,
+   "start": 176.416325,
    "dur": 6.901837,
    "sub": "Always On can keep OpenCrabs running in the background. Skip it for now. There's a separate video for that."
   },
   {
    "id": "c7h",
-   "start": 138.28498900000002,
+   "start": 183.868162,
    "dur": 4.891587,
    "sub": "Vibe Check makes sure everything is wired up. All OK? Press Enter."
   },
   {
    "id": "c7i",
-   "start": 143.72657600000002,
+   "start": 189.309749,
    "dur": 5.530227,
    "sub": "Make It Yours lets you tell OpenCrabs about yourself. Press Escape to skip it for now."
   },
   {
    "id": "c7j",
-   "start": 149.80680300000003,
+   "start": 195.38997600000002,
    "dur": 3.022721,
    "sub": "Setup complete. And you're in. Say hi."
   },
   {
    "id": "c7k",
-   "start": 153.37952400000003,
+   "start": 198.96269700000002,
    "dur": 6.819501,
    "sub": "It answers. Your reply will be different, but that's it. OpenCrabs is installed and running."
   },
   {
    "id": "p3a",
-   "start": 160.74902500000005,
-   "dur": 8.344218,
+   "start": 206.33219800000003,
+   "dur": 8.341134,
    "sub": "Next time, start it the same way. Open a terminal in your home folder, type ./opencrabs and press Enter."
   },
   {
-   "id": "c8a",
-   "start": 171.04324300000007,
-   "dur": 6.322426,
-   "sub": "If something goes wrong, here are the three errors people hit most, and the fix for each."
-  },
-  {
-   "id": "c8b",
-   "start": 177.9156690000001,
-   "dur": 9.840522,
-   "sub": "GLIBC_2.39 not found means your system is too old for this download. Watch the older systems video instead."
-  },
-  {
-   "id": "p4c",
-   "start": 188.3061910000001,
-   "dur": 9.811179,
-   "sub": "libgomp.so.1: cannot open shared object file means the helpers are missing. Paste the install block again."
-  },
-  {
-   "id": "p4d",
-   "start": 198.66737000000012,
-   "dur": 8.588934,
-   "sub": "gzip: unexpected end of file means the version lookup came back empty. Wait a moment, then paste the block again."
-  },
-  {
    "id": "c9a",
-   "start": 209.20630400000013,
+   "start": 216.62333200000006,
    "dur": 4.420227,
    "sub": "Every command from this video is in the description, ready to copy."
   },
   {
    "id": "c9b",
-   "start": 214.17653100000015,
+   "start": 221.59355900000008,
    "dur": 7.577846,
    "sub": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone. See you there."
   }
@@ -609,217 +659,222 @@
  "cues": [
   {
    "start": 2.2,
-   "end": 9.166643999999998,
+   "end": 9.163129000000001,
    "text": "In this video, we'll install OpenCrabs on Ubuntu with a single paste, from zero to your first chat."
   },
   {
-   "start": 9.716644,
-   "end": 19.404490000000003,
+   "start": 9.713129000000002,
+   "end": 19.400975000000003,
    "text": "You need Ubuntu 24.04 or newer on a 64-bit machine, an internet connection, and a key or subscription from an AI provider."
   },
   {
-   "start": 19.954490000000003,
-   "end": 24.892177000000004,
+   "start": 19.950975000000003,
+   "end": 24.888662000000004,
    "text": "Open a terminal. On the Ubuntu desktop, press Control, Alt and T."
   },
   {
-   "start": 26.842177000000003,
-   "end": 32.733560000000004,
+   "start": 26.838662000000003,
+   "end": 32.729138000000006,
    "text": "First, one quick check. Your glibc version must be 2.39 or newer."
   },
   {
-   "start": 33.28356,
-   "end": 37.20470590163934,
-   "text": "Here it says 2.39, so we're good. Older than that?"
+   "start": 33.279138,
+   "end": 40.05487555752213,
+   "text": "Here it says 2.39, so we're good. Older than that isn't supported."
   },
   {
-   "start": 37.20470590163934,
-   "end": 42.851155999999996,
-   "text": "This download won't run there, so watch the older systems video instead."
+   "start": 40.05487555752213,
+   "end": 44.88002200000001,
+   "text": "OpenCrabs only ships builds for 2.39 and newer."
   },
   {
-   "start": 44.801156,
-   "end": 47.43169631007752,
+   "start": 46.830022,
+   "end": 52.1193585625,
+   "text": "Next, one line so OpenCrabs never has to stop and ask for your password."
+  },
+  {
+   "start": 52.1193585625,
+   "end": 56.233287,
+   "text": "Copy it from the description, paste it, and press Enter."
+  },
+  {
+   "start": 56.783286999999994,
+   "end": 62.837251152542365,
+   "text": "Ubuntu asks for your password one last time. Nothing appears while you type it."
+  },
+  {
+   "start": 62.837251152542365,
+   "end": 65.82591699999999,
+   "text": "That's normal. Type it and press Enter."
+  },
+  {
+   "start": 66.37591699999999,
+   "end": 69.84185768932038,
+   "text": "Already logged in as root, on a server for example?"
+  },
+  {
+   "start": 69.84185768932038,
+   "end": 73.37575799999999,
+   "text": "Skip this line and paste the install block as it is."
+  },
+  {
+   "start": 75.325758,
+   "end": 77.9540710620155,
    "text": "Now the whole install is one paste."
   },
   {
-   "start": 47.43169631007752,
-   "end": 54.496576000000005,
+   "start": 77.9540710620155,
+   "end": 85.012969,
    "text": "Copy this block from the docs or the description, paste it into the terminal, and press Enter."
   },
   {
-   "start": 55.046575999999995,
-   "end": 60.6509851047619,
+   "start": 85.562969,
+   "end": 91.1665478952381,
    "text": "On an ARM machine, copy the arm64 block from the docs instead."
   },
   {
-   "start": 60.6509851047619,
-   "end": 64.537914,
+   "start": 91.1665478952381,
+   "end": 95.052901,
    "text": "It's the same, with arm64 in the file name."
   },
   {
-   "start": 65.087914,
-   "end": 70.77512861538462,
-   "text": "Ubuntu asks for your password. Nothing appears while you type it. That's normal."
+   "start": 95.60290099999999,
+   "end": 100.42950359627328,
+   "text": "This time there's no password prompt. It does everything in one go."
   },
   {
-   "start": 70.77512861538462,
-   "end": 72.48129300000001,
-   "text": "Type it and press Enter."
-  },
-  {
-   "start": 73.03129299999999,
-   "end": 75.27381240624999,
-   "text": "Then it does everything in one go."
-  },
-  {
-   "start": 75.27381240624999,
-   "end": 81.47371899999999,
+   "start": 100.42950359627328,
+   "end": 107.20115499999999,
    "text": "It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
   },
   {
-   "start": 83.42371899999999,
-   "end": 89.648141,
-   "text": "The setup wizard opens. Choose QuickStart, the sensible defaults, and press Enter."
+   "start": 107.75115499999998,
+   "end": 114.48713834351143,
+   "text": "If you see gzip: unexpected end of file here instead, the version lookup came back empty."
   },
   {
-   "start": 90.19814099999999,
-   "end": 94.16874093656716,
-   "text": "Home Base is the dot opencrabs folder in your home directory."
-  },
-  {
-   "start": 94.16874093656716,
-   "end": 98.00915726865671,
-   "text": "That's always the default. Keep Seed template files ticked."
-  },
-  {
-   "start": 98.00915726865671,
-   "end": 104.32306208582088,
-   "text": "We recommend it: those files give your crab its personality, so you start with the complete crab."
-  },
-  {
-   "start": 104.32306208582088,
-   "end": 107.64274399999998,
-   "text": "You can change them later if you want. Press Enter."
-  },
-  {
-   "start": 108.19274399999999,
-   "end": 115.08108899999999,
-   "text": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
-  },
-  {
-   "start": 115.63108899999999,
-   "end": 120.95802182442748,
-   "text": "Now paste your API key, or a setup token if you have a Claude subscription."
-  },
-  {
-   "start": 120.95802182442748,
-   "end": 124.935465,
-   "text": "It's hidden on screen. Never share your key with anyone."
-  },
-  {
-   "start": 125.48546499999999,
-   "end": 130.283152,
-   "text": "Keep the default model, or pick another one, and press Enter."
-  },
-  {
-   "start": 130.833152,
-   "end": 135.5211922264151,
-   "text": "Always On can keep OpenCrabs running in the background. Skip it for now."
-  },
-  {
-   "start": 135.5211922264151,
-   "end": 137.734989,
-   "text": "There's a separate video for that."
-  },
-  {
-   "start": 138.28498900000002,
-   "end": 143.176576,
-   "text": "Vibe Check makes sure everything is wired up. All OK? Press Enter."
-  },
-  {
-   "start": 143.72657600000002,
-   "end": 147.1748351882353,
-   "text": "Make It Yours lets you tell OpenCrabs about yourself."
-  },
-  {
-   "start": 147.1748351882353,
-   "end": 149.25680300000002,
-   "text": "Press Escape to skip it for now."
-  },
-  {
-   "start": 149.80680300000003,
-   "end": 152.82952400000002,
-   "text": "Setup complete. And you're in. Say hi."
-  },
-  {
-   "start": 153.37952400000003,
-   "end": 157.57614000000004,
-   "text": "It answers. Your reply will be different, but that's it."
-  },
-  {
-   "start": 157.57614000000004,
-   "end": 160.19902500000003,
-   "text": "OpenCrabs is installed and running."
-  },
-  {
-   "start": 160.74902500000005,
-   "end": 163.42241523300976,
-   "text": "Next time, start it the same way."
-  },
-  {
-   "start": 163.42241523300976,
-   "end": 169.09324300000006,
-   "text": "Open a terminal in your home folder, type ./opencrabs and press Enter."
-  },
-  {
-   "start": 171.04324300000007,
-   "end": 177.36566900000008,
-   "text": "If something goes wrong, here are the three errors people hit most, and the fix for each."
-  },
-  {
-   "start": 177.9156690000001,
-   "end": 184.2284566981133,
-   "text": "GLIBC_2.39 not found means your system is too old for this download."
-  },
-  {
-   "start": 184.2284566981133,
-   "end": 187.7561910000001,
-   "text": "Watch the older systems video instead."
-  },
-  {
-   "start": 188.3061910000001,
-   "end": 195.3141760000001,
-   "text": "libgomp.so.1: cannot open shared object file means the helpers are missing."
-  },
-  {
-   "start": 195.3141760000001,
-   "end": 198.11737000000008,
-   "text": "Paste the install block again."
-  },
-  {
-   "start": 198.66737000000012,
-   "end": 204.03545375000013,
-   "text": "gzip: unexpected end of file means the version lookup came back empty."
-  },
-  {
-   "start": 204.03545375000013,
-   "end": 207.25630400000014,
+   "start": 114.48713834351143,
+   "end": 117.66591699999998,
    "text": "Wait a moment, then paste the block again."
   },
   {
-   "start": 209.20630400000013,
-   "end": 213.62653100000014,
+   "start": 118.21591699999998,
+   "end": 125.28869699999997,
+   "text": "If it stops at libgomp.so.1: cannot open shared object file, the helpers didn't install."
+  },
+  {
+   "start": 125.28869699999997,
+   "end": 127.05689199999998,
+   "text": "Paste the block again."
+  },
+  {
+   "start": 129.00689199999997,
+   "end": 135.23131399999997,
+   "text": "The setup wizard opens. Choose QuickStart, the sensible defaults, and press Enter."
+  },
+  {
+   "start": 135.78131399999998,
+   "end": 139.75191393656715,
+   "text": "Home Base is the dot opencrabs folder in your home directory."
+  },
+  {
+   "start": 139.75191393656715,
+   "end": 143.5923302686567,
+   "text": "That's always the default. Keep Seed template files ticked."
+  },
+  {
+   "start": 143.5923302686567,
+   "end": 149.90623508582087,
+   "text": "We recommend it: those files give your crab its personality, so you start with the complete crab."
+  },
+  {
+   "start": 149.90623508582087,
+   "end": 153.22591699999998,
+   "text": "You can change them later if you want. Press Enter."
+  },
+  {
+   "start": 153.775917,
+   "end": 160.66426199999998,
+   "text": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
+  },
+  {
+   "start": 161.214262,
+   "end": 166.54119482442746,
+   "text": "Now paste your API key, or a setup token if you have a Claude subscription."
+  },
+  {
+   "start": 166.54119482442746,
+   "end": 170.51863799999998,
+   "text": "It's hidden on screen. Never share your key with anyone."
+  },
+  {
+   "start": 171.068638,
+   "end": 175.866325,
+   "text": "Keep the default model, or pick another one, and press Enter."
+  },
+  {
+   "start": 176.416325,
+   "end": 181.1043652264151,
+   "text": "Always On can keep OpenCrabs running in the background. Skip it for now."
+  },
+  {
+   "start": 181.1043652264151,
+   "end": 183.318162,
+   "text": "There's a separate video for that."
+  },
+  {
+   "start": 183.868162,
+   "end": 188.759749,
+   "text": "Vibe Check makes sure everything is wired up. All OK? Press Enter."
+  },
+  {
+   "start": 189.309749,
+   "end": 192.7580081882353,
+   "text": "Make It Yours lets you tell OpenCrabs about yourself."
+  },
+  {
+   "start": 192.7580081882353,
+   "end": 194.839976,
+   "text": "Press Escape to skip it for now."
+  },
+  {
+   "start": 195.38997600000002,
+   "end": 198.412697,
+   "text": "Setup complete. And you're in. Say hi."
+  },
+  {
+   "start": 198.96269700000002,
+   "end": 203.15931300000003,
+   "text": "It answers. Your reply will be different, but that's it."
+  },
+  {
+   "start": 203.15931300000003,
+   "end": 205.78219800000002,
+   "text": "OpenCrabs is installed and running."
+  },
+  {
+   "start": 206.33219800000003,
+   "end": 209.00460015533983,
+   "text": "Next time, start it the same way."
+  },
+  {
+   "start": 209.00460015533983,
+   "end": 214.67333200000002,
+   "text": "Open a terminal in your home folder, type ./opencrabs and press Enter."
+  },
+  {
+   "start": 216.62333200000006,
+   "end": 221.04355900000007,
    "text": "Every command from this video is in the description, ready to copy."
   },
   {
-   "start": 214.17653100000015,
-   "end": 220.89881374193564,
+   "start": 221.59355900000008,
+   "end": 228.31584174193557,
    "text": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone."
   },
   {
-   "start": 220.89881374193564,
-   "end": 221.75437700000015,
+   "start": 228.31584174193557,
+   "end": 229.17140500000008,
    "text": "See you there."
   }
  ]
