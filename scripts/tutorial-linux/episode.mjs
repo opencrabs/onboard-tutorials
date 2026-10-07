@@ -78,7 +78,7 @@ export const CHAPTERS = [
           sub: "Brain Fuel is the important one. Pick your AI provider. We'll use z.ai with GLM models. It costs far less than most, and coding plans are supported." },
         act: [{ screen: "wiz-provider", dur: 0.1 }] },
       { vo: { id: "c7e", say: "If you're on a GLM coding plan, set Endpoint Type to Coding API. Then paste your API key. It's hidden on screen. Never share your key with anyone." },
-        act: [{ screen: "wiz-key", dur: 0.1 }, { wait: 3.8 }, { card: "key", dur: 7 }] },
+        act: [{ screen: "wiz-key", dur: 0.1 }, { wait: 5.0 }, { card: "key", dur: 5.8 }] },
       { vo: { id: "c7f", say: "Keep the default model, or pick another one, and press Enter." },
         act: [{ screen: "wiz-model", dur: 0.1 }] },
       { vo: { id: "c7g", say: "Always On can keep OpenCrabs running in the background. Skip it for now. There's a separate video for that." },
