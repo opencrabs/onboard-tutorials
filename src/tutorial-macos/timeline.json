@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 111.63868399999997,
+ "total": 113.17076999999998,
  "prompt": "you@MacBook ~ % ",
  "chapters": [
   {
@@ -28,7 +28,7 @@
    "n": 3,
    "title": "What's next",
    "start": 93.79947799999998,
-   "end": 108.63868399999997,
+   "end": 110.17076999999998,
    "copy": null
   }
  ],
@@ -107,14 +107,14 @@
    "chapter": 3,
    "id": "m3a",
    "start": 93.79947799999998,
-   "end": 101.99303799999997,
+   "end": 103.52512399999998,
    "copy": null
   },
   {
    "chapter": 3,
    "id": "m3b",
-   "start": 101.99303799999997,
-   "end": 108.63868399999997,
+   "start": 103.52512399999998,
+   "end": 110.17076999999998,
    "copy": null
   }
  ],
@@ -332,12 +332,12 @@
   {
    "id": "m3a",
    "start": 93.79947799999998,
-   "dur": 7.64356,
-   "sub": "From now on, just type opencrabs in any terminal. To update, run brew upgrade opencrabs."
+   "dur": 9.175646,
+   "sub": "From now on, just type opencrabs in any terminal. To update, type /evolve inside OpenCrabs. It handles the rest."
   },
   {
    "id": "m3b",
-   "start": 101.99303799999997,
+   "start": 103.52512399999998,
    "dur": 6.095646,
    "sub": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
   }
@@ -430,17 +430,17 @@
   },
   {
    "start": 93.79947799999998,
-   "end": 98.10447156321837,
+   "end": 97.84998839639637,
    "text": "From now on, just type opencrabs in any terminal."
   },
   {
-   "start": 98.10447156321837,
-   "end": 101.44303799999997,
-   "text": "To update, run brew upgrade opencrabs."
+   "start": 97.84998839639637,
+   "end": 102.97512399999998,
+   "text": "To update, type /evolve inside OpenCrabs. It handles the rest."
   },
   {
-   "start": 101.99303799999997,
-   "end": 108.08868399999997,
+   "start": 103.52512399999998,
+   "end": 109.62076999999998,
    "text": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
   }
  ]

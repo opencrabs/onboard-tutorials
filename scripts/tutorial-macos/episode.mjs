@@ -9,7 +9,7 @@ export const CMD = {
   brew: "brew install opencrabs",
   run: "opencrabs",
   homebrew: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
-  upgrade: "brew upgrade opencrabs",
+  update: "/evolve",
 };
 
 // Same beat format as tutorial-linux/episode.mjs.
@@ -61,7 +61,7 @@ export const CHAPTERS = [
   {
     n: 3, title: "What's next", copy: null,
     beats: [
-      { vo: { id: "m3a", say: "From now on, just type opencrabs in any terminal. To update, run brew upgrade opencrabs." }, act: [{ card: "next", dur: 999 }] },
+      { vo: { id: "m3a", say: "From now on, just type opencrabs in any terminal. To update, type slash evolve inside OpenCrabs. It handles the rest.", sub: "From now on, just type opencrabs in any terminal. To update, type /evolve inside OpenCrabs. It handles the rest." }, act: [{ card: "next", dur: 999 }] },
       { vo: { id: "m3b", say: "Next up: connect Telegram, and chat with your crab from your phone. See you there." } },
     ],
   },
@@ -86,8 +86,7 @@ No Homebrew yet? Install it first (from https://brew.sh):
 ${block(CMD.homebrew)}
 2. Start it (the setup wizard opens on the first run)
 ${block(CMD.run)}
-3. Update later
-${block(CMD.upgrade)}
+3. Update later: type \`/evolve\` inside OpenCrabs. On a Homebrew install it runs the brew upgrade for you.
 
 Intel Mac or no Homebrew: download the macos release binary instead (docs, Option 2: Download Binary).
 

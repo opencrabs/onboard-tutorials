@@ -41,7 +41,7 @@
  },
  {
   "id": "m3a",
-  "text": "From now on, just type opencrabs in any terminal. To update, run brew upgrade opencrabs."
+  "text": "From now on, just type opencrabs in any terminal. To update, type slash evolve inside OpenCrabs. It handles the rest."
  },
  {
   "id": "m3b",

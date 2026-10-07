@@ -25,7 +25,7 @@ export const Body: React.FC<{ id: string }> = ({ id }) => {
         <Item icon="⌨">Start it any time:</Item>
         <Mono c={C.green}>opencrabs</Mono>
         <div style={{ height: 20 }} />
-        <Item icon="⬆">Update: <span style={{ fontFamily: MONO, color: O }}>brew upgrade opencrabs</span></Item>
+        <Item icon="⬆">Update: type <span style={{ fontFamily: MONO, color: O }}>/evolve</span> inside OpenCrabs</Item>
         <Item icon="→" c={O}><b>Next:</b> connect Telegram and chat from your phone</Item>
       </>);
     default:
