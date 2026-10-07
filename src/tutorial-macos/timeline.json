@@ -1,0 +1,447 @@
+{
+ "fps": 30,
+ "total": 111.63868399999997,
+ "prompt": "you@MacBook ~ % ",
+ "chapters": [
+  {
+   "n": 0,
+   "title": "Intro",
+   "start": 0.5,
+   "end": 13.318934,
+   "copy": null
+  },
+  {
+   "n": 1,
+   "title": "Install with Homebrew",
+   "start": 14.718934,
+   "end": 36.961791,
+   "copy": "brew install opencrabs"
+  },
+  {
+   "n": 2,
+   "title": "The setup wizard",
+   "start": 38.361791,
+   "end": 92.39947799999997,
+   "copy": "opencrabs"
+  },
+  {
+   "n": 3,
+   "title": "What's next",
+   "start": 93.79947799999998,
+   "end": 108.63868399999997,
+   "copy": null
+  }
+ ],
+ "beats": [
+  {
+   "chapter": 0,
+   "id": "m0a",
+   "start": 0.5,
+   "end": 6.9693879999999995,
+   "copy": null
+  },
+  {
+   "chapter": 0,
+   "id": "m0b",
+   "start": 6.9693879999999995,
+   "end": 13.318934,
+   "copy": null
+  },
+  {
+   "chapter": 1,
+   "id": "m1a",
+   "start": 14.718934,
+   "end": 25.41331,
+   "copy": "brew install opencrabs"
+  },
+  {
+   "chapter": 1,
+   "id": "m1b",
+   "start": 25.41331,
+   "end": 36.961791,
+   "copy": "brew install opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2a",
+   "start": 38.361791,
+   "end": 48.18809499999999,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2b",
+   "start": 48.18809499999999,
+   "end": 55.418230999999984,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2c",
+   "start": 55.418230999999984,
+   "end": 65.70977299999998,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2d",
+   "start": 65.70977299999998,
+   "end": 73.96970499999998,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2e",
+   "start": 73.96970499999998,
+   "end": 81.10262999999998,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 2,
+   "id": "m2f",
+   "start": 81.10262999999998,
+   "end": 92.39947799999997,
+   "copy": "opencrabs"
+  },
+  {
+   "chapter": 3,
+   "id": "m3a",
+   "start": 93.79947799999998,
+   "end": 101.99303799999997,
+   "copy": null
+  },
+  {
+   "chapter": 3,
+   "id": "m3b",
+   "start": 101.99303799999997,
+   "end": 108.63868399999997,
+   "copy": null
+  }
+ ],
+ "actions": [
+  {
+   "wait": 3,
+   "at": 6.9693879999999995,
+   "chapter": 0
+  },
+  {
+   "prompt": true,
+   "at": 9.969387999999999,
+   "chapter": 0
+  },
+  {
+   "wait": 0.3,
+   "at": 14.718934,
+   "chapter": 1
+  },
+  {
+   "cmd": "brew install opencrabs",
+   "at": 15.018934000000002,
+   "chapter": 1,
+   "type": 0.6875
+  },
+  {
+   "out": [
+    "==> Fetching downloads for: opencrabs",
+    "@✔︎ Bottle opus (1.6.1)",
+    "@✔︎ Bottle rtk (0.50.0)",
+    "@✔︎ Bottle opencrabs (0.5.4)",
+    "==> Installing dependencies for opencrabs: opus and rtk",
+    "~[... output shortened ...]",
+    "==> Pouring opencrabs--0.5.4.arm64_tahoe.bottle.tar.gz",
+    "🍺  /opt/homebrew/Cellar/opencrabs/0.5.4"
+   ],
+   "gap": 0.3,
+   "at": 16.056434000000003,
+   "chapter": 1
+  },
+  {
+   "zoom": "Cellar/opencrabs",
+   "note": "installed",
+   "dur": 3,
+   "at": 18.606434000000004,
+   "chapter": 1
+  },
+  {
+   "card": "fail-brew",
+   "dur": 11.548480999999999,
+   "at": 25.41331,
+   "chapter": 1
+  },
+  {
+   "cmd": "opencrabs",
+   "at": 38.361791,
+   "chapter": 2,
+   "type": 0.5
+  },
+  {
+   "wait": 0.6,
+   "at": 39.211791,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-mode",
+   "dur": 0.1,
+   "at": 39.811791,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-home",
+   "dur": 0.1,
+   "at": 48.18809499999999,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-provider",
+   "dur": 2.4,
+   "at": 55.418230999999984,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-key",
+   "dur": 0.1,
+   "at": 57.81823099999998,
+   "chapter": 2
+  },
+  {
+   "wait": 2.6,
+   "at": 57.918230999999984,
+   "chapter": 2
+  },
+  {
+   "card": "key",
+   "dur": 3.2,
+   "at": 60.518230999999986,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-model",
+   "dur": 1.6,
+   "at": 65.70977299999998,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-daemon",
+   "dur": 1.6,
+   "at": 67.30977299999998,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-health",
+   "dur": 2.2,
+   "at": 68.90977299999997,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-brain",
+   "dur": 1,
+   "at": 71.10977299999998,
+   "chapter": 2
+  },
+  {
+   "screen": "wiz-done",
+   "dur": 1.4,
+   "at": 72.10977299999998,
+   "chapter": 2
+  },
+  {
+   "screen": "chat",
+   "dur": 0.1,
+   "at": 73.50977299999998,
+   "chapter": 2
+  },
+  {
+   "wait": 3.6,
+   "at": 73.96970499999998,
+   "chapter": 2
+  },
+  {
+   "card": "fda",
+   "dur": 11.296847999999997,
+   "at": 81.10262999999998,
+   "chapter": 2
+  },
+  {
+   "card": "next",
+   "dur": 999,
+   "at": 93.79947799999998,
+   "chapter": 3
+  }
+ ],
+ "vo": [
+  {
+   "id": "m0a",
+   "start": 0.5,
+   "dur": 5.919388,
+   "sub": "That's OpenCrabs answering on a Mac. Here's how you get there, with one Homebrew command."
+  },
+  {
+   "id": "m0b",
+   "start": 6.9693879999999995,
+   "dur": 5.799546,
+   "sub": "Open Terminal. Press Command and Space, type Terminal, and press Enter."
+  },
+  {
+   "id": "m1a",
+   "start": 14.718934,
+   "dur": 10.144376,
+   "sub": "Type brew install opencrabs, and press Enter. Homebrew downloads the ready-made build for Apple Silicon, plus two small helpers."
+  },
+  {
+   "id": "m1b",
+   "start": 25.41331,
+   "dur": 10.998481,
+   "sub": "If Terminal says \"command not found: brew\", you don't have Homebrew yet. Install it from brew.sh (the command is in the description), then run this line again."
+  },
+  {
+   "id": "m2a",
+   "start": 38.361791,
+   "dur": 9.276304,
+   "sub": "Now type opencrabs and press Enter. The setup wizard opens. It's the same wizard as in the Linux video, so here's the fast version."
+  },
+  {
+   "id": "m2b",
+   "start": 48.18809499999999,
+   "dur": 6.680136,
+   "sub": "QuickStart. Keep the .opencrabs folder with Seed template files ticked: that's your crab's personality."
+  },
+  {
+   "id": "m2c",
+   "start": 55.418230999999984,
+   "dur": 9.741542,
+   "sub": "For Brain Fuel we use z.ai with GLM. On a coding plan, pick Coding API, then paste your key. It stays hidden."
+  },
+  {
+   "id": "m2d",
+   "start": 65.70977299999998,
+   "dur": 7.709932,
+   "sub": "Keep the default model. Skip Always On and Make It Yours for now. Every check passes, and you're in."
+  },
+  {
+   "id": "m2e",
+   "start": 73.96970499999998,
+   "dur": 6.582925,
+   "sub": "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running."
+  },
+  {
+   "id": "m2f",
+   "start": 81.10262999999998,
+   "dur": 10.746848,
+   "sub": "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security."
+  },
+  {
+   "id": "m3a",
+   "start": 93.79947799999998,
+   "dur": 7.64356,
+   "sub": "From now on, just type opencrabs in any terminal. To update, run brew upgrade opencrabs."
+  },
+  {
+   "id": "m3b",
+   "start": 101.99303799999997,
+   "dur": 6.095646,
+   "sub": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
+  }
+ ],
+ "cues": [
+  {
+   "start": 0.5,
+   "end": 2.921567818181818,
+   "text": "That's OpenCrabs answering on a Mac."
+  },
+  {
+   "start": 2.921567818181818,
+   "end": 6.419388,
+   "text": "Here's how you get there, with one Homebrew command."
+  },
+  {
+   "start": 6.9693879999999995,
+   "end": 12.768934,
+   "text": "Open Terminal. Press Command and Space, type Terminal, and press Enter."
+  },
+  {
+   "start": 14.718934,
+   "end": 18.313397937007874,
+   "text": "Type brew install opencrabs, and press Enter."
+  },
+  {
+   "start": 18.313397937007874,
+   "end": 24.86331,
+   "text": "Homebrew downloads the ready-made build for Apple Silicon, plus two small helpers."
+  },
+  {
+   "start": 25.41331,
+   "end": 30.425276025316457,
+   "text": "If Terminal says \"command not found: brew\", you don't have Homebrew yet."
+  },
+  {
+   "start": 30.425276025316457,
+   "end": 36.411791,
+   "text": "Install it from brew.sh (the command is in the description), then run this line again."
+  },
+  {
+   "start": 38.361791,
+   "end": 42.57180589230769,
+   "text": "Now type opencrabs and press Enter. The setup wizard opens."
+  },
+  {
+   "start": 42.57180589230769,
+   "end": 47.63809499999999,
+   "text": "It's the same wizard as in the Linux video, so here's the fast version."
+  },
+  {
+   "start": 48.18809499999999,
+   "end": 48.9085018235294,
+   "text": "QuickStart."
+  },
+  {
+   "start": 48.9085018235294,
+   "end": 54.86823099999999,
+   "text": "Keep the .opencrabs folder with Seed template files ticked: that's your crab's personality."
+  },
+  {
+   "start": 55.418230999999984,
+   "end": 58.66541166666665,
+   "text": "For Brain Fuel we use z.ai with GLM."
+  },
+  {
+   "start": 58.66541166666665,
+   "end": 65.15977299999999,
+   "text": "On a coding plan, pick Coding API, then paste your key. It stays hidden."
+  },
+  {
+   "start": 65.70977299999998,
+   "end": 70.77184956565655,
+   "text": "Keep the default model. Skip Always On and Make It Yours for now."
+  },
+  {
+   "start": 70.77184956565655,
+   "end": 73.419705,
+   "text": "Every check passes, and you're in."
+  },
+  {
+   "start": 73.96970499999998,
+   "end": 80.55262999999998,
+   "text": "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running."
+  },
+  {
+   "start": 81.10262999999998,
+   "end": 91.84947799999998,
+   "text": "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security."
+  },
+  {
+   "start": 93.79947799999998,
+   "end": 98.10447156321837,
+   "text": "From now on, just type opencrabs in any terminal."
+  },
+  {
+   "start": 98.10447156321837,
+   "end": 101.44303799999997,
+   "text": "To update, run brew upgrade opencrabs."
+  },
+  {
+   "start": 101.99303799999997,
+   "end": 108.08868399999997,
+   "text": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
+  }
+ ]
+}

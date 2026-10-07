@@ -1,0 +1,50 @@
+[
+ {
+  "id": "m0a",
+  "text": "That's OpenCrabs answering on a Mac. Here's how you get there, with one Homebrew command."
+ },
+ {
+  "id": "m0b",
+  "text": "Open Terminal. Press Command and Space, type Terminal, and press Enter."
+ },
+ {
+  "id": "m1a",
+  "text": "Type brew install opencrabs, and press Enter. Homebrew downloads the ready-made build for Apple Silicon, plus two small helpers."
+ },
+ {
+  "id": "m1b",
+  "text": "If Terminal says command not found, brew, you don't have Homebrew yet. Install it from brew dot s h, the command is in the description, then run this line again."
+ },
+ {
+  "id": "m2a",
+  "text": "Now type opencrabs and press Enter. The setup wizard opens. It's the same wizard as in the Linux video, so here's the fast version."
+ },
+ {
+  "id": "m2b",
+  "text": "QuickStart. Keep the dot opencrabs folder with Seed template files ticked, that's your crab's personality."
+ },
+ {
+  "id": "m2c",
+  "text": "For Brain Fuel we use Z dot A I with GLM. On a coding plan, pick Coding API, then paste your key. It stays hidden."
+ },
+ {
+  "id": "m2d",
+  "text": "Keep the default model. Skip Always On and Make It Yours for now. Every check passes, and you're in."
+ },
+ {
+  "id": "m2e",
+  "text": "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running."
+ },
+ {
+  "id": "m2f",
+  "text": "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security."
+ },
+ {
+  "id": "m3a",
+  "text": "From now on, just type opencrabs in any terminal. To update, run brew upgrade opencrabs."
+ },
+ {
+  "id": "m3b",
+  "text": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
+ }
+]
