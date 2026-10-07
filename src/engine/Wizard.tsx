@@ -1,10 +1,20 @@
-// The OpenCrabs setup wizard and first chat, redrawn from src/tui/onboarding_render.rs
-// (step titles/subtitles from onboarding/types.rs, health checks from onboarding/config.rs).
+// The OpenCrabs setup wizard and first chat, redrawn from src/tui/onboarding_render.rs and
+// onboarding_layout.rs (#1975-#1980): tinted header/footer bands, the left-side step timeline,
+// default theme colours from render/palette.rs. Step titles/subtitles from onboarding/types.rs,
+// health checks from onboarding/config.rs. Drawn as a 113x30 terminal, the size where the real
+// wizard shows the timeline, the logo, spaced header rows and full band padding.
 // The screens are the same on every OS; only the home path and the daemon line differ (WizardOS).
 import React from "react";
 import { MONO } from "../theme";
 
-export const K = { bg: "#0c0c0f", orange: "#d76414", gold: "#e0a84a", text: "#c8c8d2", gray: "#8c8ca0", dim: "#50505f", teal: "#3fb9a6", user: "#4f8cff" };
+// Default theme roles: accent = ORANGE, accent_soft = WHITE, gray = GRAY, gray_dim = GRAY_DIM,
+// success = SUCCESS, error = ERROR, surface_panel = SURFACE_PANEL. The wizard's "gold" is the accent.
+export const K = { bg: "#0c0c0f", orange: "#d76414", gold: "#d76414", text: "#dcdcdc", gray: "#787878", dim: "#505050", teal: "#3cbcbc", user: "#787878", green: "#50c878", red: "#dc5050", panel: "#1e1e2d" };
+const FS = 20, LH = 25, CW = FS * 0.602;
+const TIMELINE_COLS = 28;
+// QuickStart flow (OnboardingStep::flow_steps): the timeline lists these six.
+const FLOW = ["Pick Your Vibe", "Home Base", "Brain Fuel", "Always On", "Vibe Check", "Make It Yours"];
+const STEP_NO: Record<string, number> = { "wiz-mode": 1, "wiz-home": 2, "wiz-provider": 3, "wiz-key": 3, "wiz-model": 3, "wiz-daemon": 4, "wiz-health": 5, "wiz-brain": 6, "wiz-done": 7 };
 
 const BANNER = [
   "   ___                    ___           _",
@@ -28,7 +38,7 @@ const STEPS: Record<string, { title: string; sub: string }> = {
 const S: React.FC<{ c?: string; b?: boolean; children: React.ReactNode }> = ({ c = K.text, b, children }) => (
   <span style={{ color: c, fontWeight: b ? 700 : 400 }}>{children}</span>
 );
-const Row: React.FC<{ children?: React.ReactNode }> = ({ children }) => <div style={{ whiteSpace: "pre", minHeight: 34 }}>{children ?? " "}</div>;
+const Row: React.FC<{ children?: React.ReactNode }> = ({ children }) => <div style={{ whiteSpace: "pre", minHeight: LH }}>{children ?? " "}</div>;
 
 const Opt: React.FC<{ sel: boolean; mark?: "[]" | "()"; label: string; desc?: string }> = ({ sel, mark = "[]", label, desc }) => (
   <>
@@ -55,9 +65,9 @@ const Body: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }
   switch (id) {
     case "wiz-mode":
       return (<>
-        <Opt sel label="QuickStart" desc="Sensible defaults, 4 steps" />
+        <Opt sel label="QuickStart" desc="Sensible defaults, 6 steps" />
         <Row />
-        <Opt sel={false} label="Advanced" desc="Full control, all 7 steps" />
+        <Opt sel={false} label="Advanced" desc="Full control, all 9 steps" />
       </>);
     case "wiz-home":
       return (<>
@@ -131,48 +141,81 @@ const Body: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }
   }
 };
 
-const Frame: React.FC<{ title: string; children: React.ReactNode; footer?: React.ReactNode }> = ({ title, children, footer }) => (
-  <div style={{ position: "absolute", inset: "18px 18px 34px 18px", border: `2px solid ${K.orange}`, borderRadius: 10, padding: "30px 34px", display: "flex", flexDirection: "column" }}>
-    <div style={{ position: "absolute", top: -17, left: 28, background: K.bg, padding: "0 8px", color: K.orange, fontWeight: 700 }}>{title}</div>
-    <div style={{ flex: 1 }}>{children}</div>
-    {footer}
-  </div>
+// A header/footer band: SURFACE_PANEL tint, a gray rule on the content side, one padding row each side.
+const Band: React.FC<{ edge: "top" | "bottom"; children: React.ReactNode }> = ({ edge, children }) => (
+  <div style={{ background: K.panel, textAlign: "center", padding: `${LH}px ${CW}px`, [edge === "top" ? "borderBottom" : "borderTop"]: `2px solid ${K.gray}` }}>{children}</div>
 );
 
-const Keys: React.FC<{ keys: [string, string][] }> = ({ keys }) => (
-  <Row>{keys.map(([k, v]) => <React.Fragment key={k}><S c={K.user} b>{`[${k}] `}</S><S c={K.text}>{v + "  "}</S></React.Fragment>)}</Row>
+const Timeline: React.FC<{ cur: number }> = ({ cur }) => {
+  const complete = cur > FLOW.length;
+  return (
+    <div style={{ width: TIMELINE_COLS * CW, flexShrink: 0, paddingTop: LH }}>
+      <Row><S c={K.orange} b>  OpenCrabs Setup</S></Row>
+      <Row><S c={K.gray} b>{"  " + (complete ? "All steps done" : `Step ${cur} of ${FLOW.length}`)}</S></Row>
+      <Row />
+      {FLOW.map((label, i) => {
+        const n = i + 1;
+        const [node, nc, lc, bold] = n < cur ? ["●", K.green, K.gray, false] : n === cur ? ["◉", K.orange, K.orange, true] : ["○", K.dim, K.dim, false];
+        return (
+          <React.Fragment key={label}>
+            <Row><S>  </S><S c={nc} b={bold}>{node}</S><S>  </S><S c={lc} b={bold}>{label}</S></Row>
+            {n < FLOW.length && <Row><S>  </S><S c={n + 1 <= cur ? K.green : K.dim}>│</S></Row>}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
+
+const Keys: React.FC<{ keys: [string, string, string][] }> = ({ keys }) => (
+  <div style={{ whiteSpace: "pre" }}>{keys.map(([k, v, c]) => <React.Fragment key={k}><S c={c} b>{`[${k}] `}</S><S c={K.text}>{v + "  "}</S></React.Fragment>)}</div>
 );
+
+// footer_key_spans: step 1 of a first run quits, Health Check takes only Enter, the rest add Tab.
+const footerKeys = (id: string, dt: number): [string, string, string][] => {
+  if (id === "wiz-mode") return [["Esc", "Quit", K.red], ["Enter", "Confirm", K.orange]];
+  if (id === "wiz-health") return [["Esc", "Back", K.red], ["Enter", dt >= 0.45 * CHECKS.length ? "Re-check" : "Check", K.orange]];
+  return [["Esc", "Back", K.red], ["Tab", "Next Field", K.gray], ["Enter", "Confirm", K.orange]];
+};
 
 export const Wizard: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }) => {
-  const base: React.CSSProperties = { position: "absolute", inset: 0, background: K.bg, fontFamily: MONO, fontSize: 24, lineHeight: "34px", color: K.text };
+  const base: React.CSSProperties = { position: "absolute", inset: 0, background: K.bg, fontFamily: MONO, fontSize: FS, lineHeight: `${LH}px`, color: K.text, display: "flex", flexDirection: "column" };
   if (id === "chat") return <Chat dt={dt} />;
-  if (id === "wiz-done") {
-    return (
-      <div style={base}>
-        <Frame title=" OpenCrabs Setup Complete ">
-          <Row /><Row /><Row><S c={K.gold} b>Setup complete!</S></Row><Row />
-          <Row><S c={K.gray}>  Provider: </S><S b>z.ai</S></Row>
-          <Row><S c={K.gray}>  Model:    </S><S b>{MODELS[0]}</S></Row>
-          <Row><S c={K.gray}>  Workspace:</S><S>{" " + os.home}</S></Row>
-          <Row /><Row /><Row><S c={K.gold} b><i>Entering OpenCrabs...</i></S></Row>
-        </Frame>
-      </div>
-    );
-  }
+  const done = id === "wiz-done";
   const st = STEPS[id];
   return (
     <div style={base}>
-      <Frame title=" OpenCrabs Setup " footer={<Keys keys={id === "wiz-brain" ? [["Esc", "Skip"], ["Enter", "Confirm"]] : [["Esc", "Back"], ["Enter", "Confirm"]]} />}>
-        {id === "wiz-mode" && (<>
-          {BANNER.map((b, i) => <Row key={i}><S c={K.orange} b>{b}</S></Row>)}
-          <Row><S c={K.gray}>{"🦀 The autonomous AI agent. Self-improving. Every channel."}</S></Row>
+      <Band edge="top">
+        {done ? <Row><S c={K.orange} b>OpenCrabs Setup Complete</S></Row> : (<>
+          <Row><S c={K.orange} b>{st.title}</S></Row>
           <Row />
+          <Row><S c={K.gray}>{st.sub}</S></Row>
         </>)}
-        <Row><S c={K.gold} b>{st.title}</S></Row>
-        <Row><S c={K.gray}>{st.sub}</S></Row>
-        <Row />
-        <Body id={id} dt={dt} os={os} />
-      </Frame>
+      </Band>
+      <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
+        <Timeline cur={STEP_NO[id] ?? 1} />
+        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+          <div style={{ width: 81 * CW }}>
+            {done ? (<>
+              <Row /><Row /><Row /><Row><S c={K.orange} b>Setup complete!</S></Row><Row />
+              <Row><S c={K.gray}>  Provider: </S><S b>z.ai</S></Row>
+              <Row><S c={K.gray}>  Model:    </S><S b>{MODELS[0]}</S></Row>
+              <Row><S c={K.gray}>  Workspace:</S><S>{" " + os.home}</S></Row>
+              <Row /><Row /><Row><S c={K.orange} b><i>Entering OpenCrabs...</i></S></Row>
+            </>) : (<>
+              {id === "wiz-mode" && (<>
+                <Row />
+                {BANNER.map((b, i) => <Row key={i}><S c={K.orange} b>{b}</S></Row>)}
+                <Row />
+                <Row><S c={K.orange}><i>{"  🦀 The autonomous AI agent. Self-improving. Every channel."}</i></S></Row>
+              </>)}
+              <Row />
+              <Body id={id} dt={dt} os={os} />
+            </>)}
+          </div>
+        </div>
+      </div>
+      {!done && <Band edge="bottom"><Keys keys={footerKeys(id, dt)} /></Band>}
     </div>
   );
 };
