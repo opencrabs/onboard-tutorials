@@ -40,8 +40,11 @@ const Opt: React.FC<{ sel: boolean; mark?: "[]" | "()"; label: string; desc?: st
   </>
 );
 
-const PROVIDERS = ["Anthropic", "OpenAI", "GitHub Copilot", "Google Gemini", "OpenRouter", "Minimax"];
-const MODELS = ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-4-5-20251001"];
+// Provider order from onboarding/types.rs; the list window is scrolled so z.ai sits in view.
+const PROVIDERS = ["GitHub Copilot", "Google Gemini", "OpenRouter", "Minimax", "z.ai", "Moonshot AI"];
+const ZAI = PROVIDERS.indexOf("z.ai");
+// The real wizard fetches this list live from z.ai; these are its current GLM ids.
+const MODELS = ["glm-5.3", "glm-5.3-flash", "glm-5.2"];
 const CHECKS = ["API Key Present", "Config File", "Workspace Directory", "Template Files"];
 
 const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
@@ -62,21 +65,27 @@ const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
     case "wiz-provider":
     case "wiz-key":
     case "wiz-model": {
-      const keyTyped = id === "wiz-key" ? Math.min(26, Math.max(0, Math.floor((dt - 1.2) * 18))) : 26;
+      const keyTyped = id === "wiz-key" ? Math.min(26, Math.max(0, Math.floor((dt - 3.9) * 18))) : 26;
       return (<>
-        {(id === "wiz-model" ? PROVIDERS.slice(0, 1) : PROVIDERS).map((p, i) => (
-          <Row key={p}>
-            <S c={K.gold}>{i === 0 && id === "wiz-provider" ? " > " : "   "}</S>
-            <S c={i === 0 ? K.gold : K.gray}>{i === 0 ? "[*]" : "[ ]"}</S>
-            <S c={i === 0 ? K.text : K.gray} b={i === 0}>{" " + p}</S>
-          </Row>
-        ))}
+        {id !== "wiz-model" && <Row><S c={K.gray}>   ↑ more</S></Row>}
+        {(id === "wiz-model" ? PROVIDERS.slice(ZAI, ZAI + 1) : PROVIDERS).map((p) => {
+          const on = p === "z.ai";
+          return (
+            <Row key={p}>
+              <S c={K.gold}>{on && id === "wiz-provider" ? " > " : "   "}</S>
+              <S c={on ? K.gold : K.gray}>{on ? "[*]" : "[ ]"}</S>
+              <S c={on ? K.text : K.gray} b={on}>{" " + p}</S>
+            </Row>
+          );
+        })}
         {id !== "wiz-model" && <Row><S c={K.gray}>   ↓ more</S></Row>}
         {id !== "wiz-provider" && (<>
+          <Row><S c={K.gray}>  Get key from open.bigmodel.cn</S></Row>
           <Row />
-          <Row><S c={K.gray}>  Claude Max / Code: run 'claude setup-token'</S></Row>
-          <Row><S c={K.gray}>  Or paste API key from console.anthropic.com</S></Row>
-          <Row><S c={K.gray}>  Setup Token: </S><S c={K.gold}>{"*".repeat(keyTyped)}</S>{id === "wiz-key" && <S c={K.gold}>█</S>}</Row>
+          <Row><S c={K.gray}>  Endpoint Type:</S></Row>
+          <Row><S c={K.gray}>    [ ] General API  </S><S c={K.gold} b>[*] Coding API</S></Row>
+          <Row />
+          <Row><S c={K.gray}>  API Key: </S><S c={K.gold}>{"*".repeat(keyTyped)}</S>{id === "wiz-key" && <S c={K.gold}>█</S>}</Row>
         </>)}
         {id === "wiz-model" && (<>
           <Row />
@@ -138,7 +147,7 @@ export const Wizard: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
       <div style={base}>
         <Frame title=" OpenCrabs Setup Complete ">
           <Row /><Row /><Row><S c={K.gold} b>Setup complete!</S></Row><Row />
-          <Row><S c={K.gray}>  Provider: </S><S b>Anthropic</S></Row>
+          <Row><S c={K.gray}>  Provider: </S><S b>z.ai</S></Row>
           <Row><S c={K.gray}>  Model:    </S><S b>{MODELS[0]}</S></Row>
           <Row><S c={K.gray}>  Workspace:</S><S> /home/you/.opencrabs</S></Row>
           <Row /><Row /><Row><S c={K.gold} b><i>Entering OpenCrabs...</i></S></Row>
@@ -173,7 +182,7 @@ const Chat: React.FC<{ dt: number }> = ({ dt }) => {
   return (
     <div style={{ position: "absolute", inset: 0, background: K.bg, fontFamily: MONO, fontSize: 24, lineHeight: "34px", color: K.text, display: "flex", flexDirection: "column" }}>
       <div style={{ padding: "16px 28px", borderBottom: `2px solid ${K.dim}`, display: "flex", justifyContent: "space-between" }}>
-        <S c={K.orange} b>🦀 OpenCrabs</S><S c={K.gray}>anthropic · {MODELS[0]}</S>
+        <S c={K.orange} b>🦀 OpenCrabs</S><S c={K.gray}>zai · {MODELS[0]}</S>
       </div>
       <div style={{ flex: 1, padding: "26px 34px", display: "flex", flexDirection: "column", gap: 22, justifyContent: "flex-end" }}>
         {sent && <div><S c={K.user} b>you  </S><S>hi</S></div>}

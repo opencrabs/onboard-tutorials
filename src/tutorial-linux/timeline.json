@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 232.7214050000001,
+ "total": 238.5845570000001,
  "prompt": "you@ubuntu:~$ ",
  "block": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs",
  "sudo": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs",
@@ -36,14 +36,14 @@
    "n": 4,
    "title": "The setup wizard",
    "start": 129.00689199999997,
-   "end": 215.22333200000006,
+   "end": 221.08648400000007,
    "copy": null
   },
   {
    "n": 5,
    "title": "What's next",
-   "start": 216.62333200000006,
-   "end": 229.7214050000001,
+   "start": 222.48648400000008,
+   "end": 235.5845570000001,
    "copy": null
   }
  ],
@@ -157,77 +157,77 @@
    "chapter": 4,
    "id": "c7d",
    "start": 153.775917,
-   "end": 161.214262,
+   "end": 165.134897,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7e",
-   "start": 161.214262,
-   "end": 171.068638,
+   "start": 165.134897,
+   "end": 176.93179,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7f",
-   "start": 171.068638,
-   "end": 176.416325,
+   "start": 176.93179,
+   "end": 182.279477,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7g",
-   "start": 176.416325,
-   "end": 183.868162,
+   "start": 182.279477,
+   "end": 189.73131400000003,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7h",
-   "start": 183.868162,
-   "end": 189.309749,
+   "start": 189.73131400000003,
+   "end": 195.17290100000002,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7i",
-   "start": 189.309749,
-   "end": 195.38997600000002,
+   "start": 195.17290100000002,
+   "end": 201.25312800000003,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7j",
-   "start": 195.38997600000002,
-   "end": 198.96269700000002,
+   "start": 201.25312800000003,
+   "end": 204.82584900000003,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c7k",
-   "start": 198.96269700000002,
-   "end": 206.33219800000003,
+   "start": 204.82584900000003,
+   "end": 212.19535000000005,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "p3a",
-   "start": 206.33219800000003,
-   "end": 215.22333200000006,
+   "start": 212.19535000000005,
+   "end": 221.08648400000007,
    "copy": null
   },
   {
    "chapter": 5,
    "id": "c9a",
-   "start": 216.62333200000006,
-   "end": 221.59355900000008,
+   "start": 222.48648400000008,
+   "end": 227.4567110000001,
    "copy": null
   },
   {
    "chapter": 5,
    "id": "c9b",
-   "start": 221.59355900000008,
-   "end": 229.7214050000001,
+   "start": 227.4567110000001,
+   "end": 235.5845570000001,
    "copy": null
   }
  ],
@@ -435,66 +435,71 @@
   {
    "screen": "wiz-key",
    "dur": 0.1,
-   "at": 161.214262,
+   "at": 165.134897,
+   "chapter": 4
+  },
+  {
+   "wait": 3.8,
+   "at": 165.234897,
    "chapter": 4
   },
   {
    "card": "key",
-   "dur": 9.5,
-   "at": 161.31426199999999,
+   "dur": 7,
+   "at": 169.034897,
    "chapter": 4
   },
   {
    "screen": "wiz-model",
    "dur": 0.1,
-   "at": 171.068638,
+   "at": 176.93179,
    "chapter": 4
   },
   {
    "screen": "wiz-daemon",
    "dur": 0.1,
-   "at": 176.416325,
+   "at": 182.279477,
    "chapter": 4
   },
   {
    "screen": "wiz-health",
    "dur": 0.1,
-   "at": 183.868162,
+   "at": 189.73131400000003,
    "chapter": 4
   },
   {
    "screen": "wiz-brain",
    "dur": 0.1,
-   "at": 189.309749,
+   "at": 195.17290100000002,
    "chapter": 4
   },
   {
    "screen": "wiz-done",
    "dur": 2.6,
-   "at": 195.38997600000002,
+   "at": 201.25312800000003,
    "chapter": 4
   },
   {
    "screen": "chat",
    "dur": 0.1,
-   "at": 197.989976,
+   "at": 203.85312800000003,
    "chapter": 4
   },
   {
    "wait": 3.5,
-   "at": 198.96269700000002,
+   "at": 204.82584900000003,
    "chapter": 4
   },
   {
    "card": "again",
    "dur": 999,
-   "at": 206.33219800000003,
+   "at": 212.19535000000005,
    "chapter": 4
   },
   {
    "card": "next",
    "dur": 999,
-   "at": 216.62333200000006,
+   "at": 222.48648400000008,
    "chapter": 5
   }
  ],
@@ -592,66 +597,66 @@
   {
    "id": "c7d",
    "start": 153.775917,
-   "dur": 6.888345,
-   "sub": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
+   "dur": 10.80898,
+   "sub": "Brain Fuel is the important one. Pick your AI provider. We'll use z.ai with GLM models. It costs far less than most, and coding plans are supported."
   },
   {
    "id": "c7e",
-   "start": 161.214262,
-   "dur": 9.304376,
-   "sub": "Now paste your API key, or a setup token if you have a Claude subscription. It's hidden on screen. Never share your key with anyone."
+   "start": 165.134897,
+   "dur": 11.246893,
+   "sub": "If you're on a GLM coding plan, set Endpoint Type to Coding API. Then paste your API key. It's hidden on screen. Never share your key with anyone."
   },
   {
    "id": "c7f",
-   "start": 171.068638,
+   "start": 176.93179,
    "dur": 4.797687,
    "sub": "Keep the default model, or pick another one, and press Enter."
   },
   {
    "id": "c7g",
-   "start": 176.416325,
+   "start": 182.279477,
    "dur": 6.901837,
    "sub": "Always On can keep OpenCrabs running in the background. Skip it for now. There's a separate video for that."
   },
   {
    "id": "c7h",
-   "start": 183.868162,
+   "start": 189.73131400000003,
    "dur": 4.891587,
    "sub": "Vibe Check makes sure everything is wired up. All OK? Press Enter."
   },
   {
    "id": "c7i",
-   "start": 189.309749,
+   "start": 195.17290100000002,
    "dur": 5.530227,
    "sub": "Make It Yours lets you tell OpenCrabs about yourself. Press Escape to skip it for now."
   },
   {
    "id": "c7j",
-   "start": 195.38997600000002,
+   "start": 201.25312800000003,
    "dur": 3.022721,
    "sub": "Setup complete. And you're in. Say hi."
   },
   {
    "id": "c7k",
-   "start": 198.96269700000002,
+   "start": 204.82584900000003,
    "dur": 6.819501,
    "sub": "It answers. Your reply will be different, but that's it. OpenCrabs is installed and running."
   },
   {
    "id": "p3a",
-   "start": 206.33219800000003,
+   "start": 212.19535000000005,
    "dur": 8.341134,
    "sub": "Next time, start it the same way. Open a terminal in your home folder, type ./opencrabs and press Enter."
   },
   {
    "id": "c9a",
-   "start": 216.62333200000006,
+   "start": 222.48648400000008,
    "dur": 4.420227,
    "sub": "Every command from this video is in the description, ready to copy."
   },
   {
    "id": "c9b",
-   "start": 221.59355900000008,
+   "start": 227.4567110000001,
    "dur": 7.577846,
    "sub": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone. See you there."
   }
@@ -794,87 +799,97 @@
   },
   {
    "start": 153.775917,
-   "end": 160.66426199999998,
-   "text": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
+   "end": 157.84779302739724,
+   "text": "Brain Fuel is the important one. Pick your AI provider."
   },
   {
-   "start": 161.214262,
-   "end": 166.54119482442746,
-   "text": "Now paste your API key, or a setup token if you have a Claude subscription."
+   "start": 157.84779302739724,
+   "end": 160.14285042465752,
+   "text": "We'll use z.ai with GLM models."
   },
   {
-   "start": 166.54119482442746,
-   "end": 170.51863799999998,
-   "text": "It's hidden on screen. Never share your key with anyone."
+   "start": 160.14285042465752,
+   "end": 164.58489699999998,
+   "text": "It costs far less than most, and coding plans are supported."
   },
   {
-   "start": 171.068638,
-   "end": 175.866325,
+   "start": 165.134897,
+   "end": 170.09904287586207,
+   "text": "If you're on a GLM coding plan, set Endpoint Type to Coding API."
+  },
+  {
+   "start": 170.09904287586207,
+   "end": 176.38179,
+   "text": "Then paste your API key. It's hidden on screen. Never share your key with anyone."
+  },
+  {
+   "start": 176.93179,
+   "end": 181.729477,
    "text": "Keep the default model, or pick another one, and press Enter."
   },
   {
-   "start": 176.416325,
-   "end": 181.1043652264151,
+   "start": 182.279477,
+   "end": 186.9675172264151,
    "text": "Always On can keep OpenCrabs running in the background. Skip it for now."
   },
   {
-   "start": 181.1043652264151,
-   "end": 183.318162,
+   "start": 186.9675172264151,
+   "end": 189.18131400000001,
    "text": "There's a separate video for that."
   },
   {
-   "start": 183.868162,
-   "end": 188.759749,
+   "start": 189.73131400000003,
+   "end": 194.622901,
    "text": "Vibe Check makes sure everything is wired up. All OK? Press Enter."
   },
   {
-   "start": 189.309749,
-   "end": 192.7580081882353,
+   "start": 195.17290100000002,
+   "end": 198.6211601882353,
    "text": "Make It Yours lets you tell OpenCrabs about yourself."
   },
   {
-   "start": 192.7580081882353,
-   "end": 194.839976,
+   "start": 198.6211601882353,
+   "end": 200.70312800000002,
    "text": "Press Escape to skip it for now."
   },
   {
-   "start": 195.38997600000002,
-   "end": 198.412697,
+   "start": 201.25312800000003,
+   "end": 204.27584900000002,
    "text": "Setup complete. And you're in. Say hi."
   },
   {
-   "start": 198.96269700000002,
-   "end": 203.15931300000003,
+   "start": 204.82584900000003,
+   "end": 209.02246500000004,
    "text": "It answers. Your reply will be different, but that's it."
   },
   {
-   "start": 203.15931300000003,
-   "end": 205.78219800000002,
+   "start": 209.02246500000004,
+   "end": 211.64535000000004,
    "text": "OpenCrabs is installed and running."
   },
   {
-   "start": 206.33219800000003,
-   "end": 209.00460015533983,
+   "start": 212.19535000000005,
+   "end": 214.86775215533984,
    "text": "Next time, start it the same way."
   },
   {
-   "start": 209.00460015533983,
-   "end": 214.67333200000002,
+   "start": 214.86775215533984,
+   "end": 220.53648400000003,
    "text": "Open a terminal in your home folder, type ./opencrabs and press Enter."
   },
   {
-   "start": 216.62333200000006,
-   "end": 221.04355900000007,
+   "start": 222.48648400000008,
+   "end": 226.9067110000001,
    "text": "Every command from this video is in the description, ready to copy."
   },
   {
-   "start": 221.59355900000008,
-   "end": 228.31584174193557,
+   "start": 227.4567110000001,
+   "end": 234.17899374193559,
    "text": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone."
   },
   {
-   "start": 228.31584174193557,
-   "end": 229.17140500000008,
+   "start": 234.17899374193559,
+   "end": 235.0345570000001,
    "text": "See you there."
   }
  ]

@@ -61,11 +61,11 @@
  },
  {
   "id": "c7d",
-  "text": "Brain Fuel is the important one. Pick your AI provider. We'll choose Anthropic."
+  "text": "Brain Fuel is the important one. Pick your AI provider. We'll use Z dot A I with GLM models. It costs far less than most, and coding plans are supported."
  },
  {
   "id": "c7e",
-  "text": "Now paste your API key, or a setup token if you have a Claude subscription. It's hidden on screen. Never share your key with anyone."
+  "text": "If you're on a GLM coding plan, set Endpoint Type to Coding API. Then paste your API key. It's hidden on screen. Never share your key with anyone."
  },
  {
   "id": "c7f",
