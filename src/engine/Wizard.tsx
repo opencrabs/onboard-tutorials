@@ -177,28 +177,26 @@ export const Wizard: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id,
   );
 };
 
-// First chat: "hi" typed, an example reply streams in (labelled, it is not real model output).
-const REPLY = "Hey! I'm OpenCrabs, running on your machine. Ask me to fix a bug, read a file, or plan a project. What are we building?";
+// First chat: the crab opens on its own after first-time setup (hidden WELCOME_MESSAGE in the real app).
+// Example text only, labelled on screen: every crab opens differently.
+const REPLY = "Fresh crab, fresh machine. I already looked around: z.ai is wired, brain files are seeded, nothing's broken. Want daily check-ins, task reminders, or a heartbeat? I can set them up right now.";
 const Chat: React.FC<{ dt: number }> = ({ dt }) => {
-  const hiTyped = "hi".slice(0, Math.max(0, Math.floor((dt - 0.3) * 6)));
-  const sent = dt > 0.9;
-  const replyN = Math.max(0, Math.floor((dt - 1.6) * 55));
+  const replyN = Math.max(0, Math.floor((dt - 0.5) * 60));
   return (
     <div style={{ position: "absolute", inset: 0, background: K.bg, fontFamily: MONO, fontSize: 24, lineHeight: "34px", color: K.text, display: "flex", flexDirection: "column" }}>
       <div style={{ padding: "16px 28px", borderBottom: `2px solid ${K.dim}`, display: "flex", justifyContent: "space-between" }}>
         <S c={K.orange} b>🦀 OpenCrabs</S><S c={K.gray}>zai · {MODELS[0]}</S>
       </div>
       <div style={{ flex: 1, padding: "26px 34px", display: "flex", flexDirection: "column", gap: 22, justifyContent: "flex-end" }}>
-        {sent && <div><S c={K.user} b>you  </S><S>hi</S></div>}
         {replyN > 0 && (
           <div style={{ whiteSpace: "pre-wrap" }}>
             <S c={K.orange} b>🦀  </S><S>{REPLY.slice(0, replyN)}</S>
-            <div style={{ marginTop: 8, fontSize: 18, color: K.gold }}>example reply · yours will differ</div>
+            <div style={{ marginTop: 8, fontSize: 18, color: K.gold }}>example opening · yours will differ</div>
           </div>
         )}
       </div>
       <div style={{ borderTop: `2px solid ${K.dim}`, padding: "16px 28px" }}>
-        <S c={K.orange}>❯ </S><S>{sent ? "" : hiTyped}</S><S c={K.gold}>█</S>
+        <S c={K.orange}>❯ </S><S c={K.gold}>█</S>
       </div>
     </div>
   );

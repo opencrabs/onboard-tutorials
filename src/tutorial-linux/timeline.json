@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 208.3553510000001,
+ "total": 210.1459630000001,
  "prompt": "you@ubuntu:~$ ",
  "block": "sudo apt update && sudo apt install -y curl jq libgomp1\nTAG=$(curl -sL https://api.github.com/repos/opencrabs/opencrabs/releases/latest | jq -r .tag_name)\ncurl -fsSL \"https://github.com/opencrabs/opencrabs/releases/download/${TAG}/opencrabs-${TAG}-linux-amd64.tar.gz\" | tar xz\n./opencrabs",
  "sudo": "echo \"$USER ALL=(ALL) NOPASSWD:ALL\" | sudo tee /etc/sudoers.d/opencrabs && sudo chmod 440 /etc/sudoers.d/opencrabs",
@@ -30,14 +30,14 @@
    "n": 3,
    "title": "The setup wizard",
    "start": 98.77768599999997,
-   "end": 190.85727800000006,
+   "end": 192.64789000000007,
    "copy": null
   },
   {
    "n": 4,
    "title": "What's next",
-   "start": 192.25727800000007,
-   "end": 205.3553510000001,
+   "start": 194.04789000000008,
+   "end": 207.1459630000001,
    "copy": null
   }
  ],
@@ -172,35 +172,35 @@
    "chapter": 3,
    "id": "c7j",
    "start": 171.02392200000003,
-   "end": 174.59664300000003,
+   "end": 174.43188100000003,
    "copy": null
   },
   {
    "chapter": 3,
    "id": "c7k",
-   "start": 174.59664300000003,
-   "end": 181.96614400000004,
+   "start": 174.43188100000003,
+   "end": 183.75675600000005,
    "copy": null
   },
   {
    "chapter": 3,
    "id": "p3a",
-   "start": 181.96614400000004,
-   "end": 190.85727800000006,
+   "start": 183.75675600000005,
+   "end": 192.64789000000007,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c9a",
-   "start": 192.25727800000007,
-   "end": 197.2275050000001,
+   "start": 194.04789000000008,
+   "end": 199.0181170000001,
    "copy": null
   },
   {
    "chapter": 4,
    "id": "c9b",
-   "start": 197.2275050000001,
-   "end": 205.3553510000001,
+   "start": 199.0181170000001,
+   "end": 207.1459630000001,
    "copy": null
   }
  ],
@@ -419,19 +419,19 @@
   },
   {
    "wait": 3.5,
-   "at": 174.59664300000003,
+   "at": 174.43188100000003,
    "chapter": 3
   },
   {
    "card": "again",
    "dur": 999,
-   "at": 181.96614400000004,
+   "at": 183.75675600000005,
    "chapter": 3
   },
   {
    "card": "next",
    "dur": 999,
-   "at": 192.25727800000007,
+   "at": 194.04789000000008,
    "chapter": 4
   }
  ],
@@ -547,30 +547,30 @@
   {
    "id": "c7j",
    "start": 171.02392200000003,
-   "dur": 3.022721,
-   "sub": "Setup complete. And you're in. Say hi."
+   "dur": 2.857959,
+   "sub": "Setup complete. And you're in."
   },
   {
    "id": "c7k",
-   "start": 174.59664300000003,
-   "dur": 6.819501,
-   "sub": "It answers. Your reply will be different, but that's it. OpenCrabs is installed and running."
+   "start": 174.43188100000003,
+   "dur": 8.774875,
+   "sub": "You don't even type first. Your crab says hello on its own. Every crab opens differently, but that's it. OpenCrabs is installed and running."
   },
   {
    "id": "p3a",
-   "start": 181.96614400000004,
+   "start": 183.75675600000005,
    "dur": 8.341134,
    "sub": "Next time, start it the same way. Open a terminal in your home folder, type ./opencrabs and press Enter."
   },
   {
    "id": "c9a",
-   "start": 192.25727800000007,
+   "start": 194.04789000000008,
    "dur": 4.420227,
    "sub": "Every command from this video is in the description, ready to copy."
   },
   {
    "id": "c9b",
-   "start": 197.2275050000001,
+   "start": 199.0181170000001,
    "dur": 7.577846,
    "sub": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone. See you there."
   }
@@ -748,42 +748,42 @@
   },
   {
    "start": 171.02392200000003,
-   "end": 174.04664300000002,
-   "text": "Setup complete. And you're in. Say hi."
+   "end": 173.88188100000002,
+   "text": "Setup complete. And you're in."
   },
   {
-   "start": 174.59664300000003,
-   "end": 178.79325900000003,
-   "text": "It answers. Your reply will be different, but that's it."
+   "start": 174.43188100000003,
+   "end": 178.15646823021586,
+   "text": "You don't even type first. Your crab says hello on its own."
   },
   {
-   "start": 178.79325900000003,
-   "end": 181.41614400000003,
-   "text": "OpenCrabs is installed and running."
+   "start": 178.15646823021586,
+   "end": 183.20675600000004,
+   "text": "Every crab opens differently, but that's it. OpenCrabs is installed and running."
   },
   {
-   "start": 181.96614400000004,
-   "end": 184.63854615533984,
+   "start": 183.75675600000005,
+   "end": 186.42915815533985,
    "text": "Next time, start it the same way."
   },
   {
-   "start": 184.63854615533984,
-   "end": 190.30727800000003,
+   "start": 186.42915815533985,
+   "end": 192.09789000000004,
    "text": "Open a terminal in your home folder, type ./opencrabs and press Enter."
   },
   {
-   "start": 192.25727800000007,
-   "end": 196.67750500000008,
+   "start": 194.04789000000008,
+   "end": 198.4681170000001,
    "text": "Every command from this video is in the description, ready to copy."
   },
   {
-   "start": 197.2275050000001,
-   "end": 203.94978774193558,
+   "start": 199.0181170000001,
+   "end": 205.7403997419356,
    "text": "Next up: keep OpenCrabs running in the background, and connect it to Telegram so you can chat from your phone."
   },
   {
-   "start": 203.94978774193558,
-   "end": 204.8053510000001,
+   "start": 205.7403997419356,
+   "end": 206.5959630000001,
    "text": "See you there."
   }
  ]

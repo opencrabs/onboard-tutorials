@@ -53,7 +53,7 @@ export const CHAPTERS = [
         act: [{ screen: "wiz-provider", dur: 2.4 }, { screen: "wiz-key", dur: 0.1 }, { wait: 2.6 }, { card: "key", dur: 3.2 }] },
       { vo: { id: "m2d", say: "Keep the default model. Skip Always On and Make It Yours for now. Every check passes, and you're in." },
         act: [{ screen: "wiz-model", dur: 1.6 }, { screen: "wiz-daemon", dur: 1.6 }, { screen: "wiz-health", dur: 2.2 }, { screen: "wiz-brain", dur: 1.0 }, { screen: "wiz-done", dur: 1.4 }, { screen: "chat", dur: 0.1 }] },
-      { vo: { id: "m2e", say: "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running." }, act: [{ wait: 3.6 }] },
+      { vo: { id: "m2e", say: "Your crab says hello first, no typing needed. Yours will be different, but OpenCrabs is installed and running." }, act: [{ wait: 3.6 }] },
       { vo: { id: "m2f", say: "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security." },
         act: [{ card: "fda", dur: "beat" }] },
     ],

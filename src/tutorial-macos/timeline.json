@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 113.17076999999998,
+ "total": 114.30643899999997,
  "prompt": "you@MacBook ~ % ",
  "chapters": [
   {
@@ -21,14 +21,14 @@
    "n": 2,
    "title": "The setup wizard",
    "start": 38.361791,
-   "end": 92.39947799999997,
+   "end": 93.53514699999997,
    "copy": "opencrabs"
   },
   {
    "n": 3,
    "title": "What's next",
-   "start": 93.79947799999998,
-   "end": 110.17076999999998,
+   "start": 94.93514699999997,
+   "end": 111.30643899999997,
    "copy": null
   }
  ],
@@ -93,28 +93,28 @@
    "chapter": 2,
    "id": "m2e",
    "start": 73.96970499999998,
-   "end": 81.10262999999998,
+   "end": 82.23829899999997,
    "copy": "opencrabs"
   },
   {
    "chapter": 2,
    "id": "m2f",
-   "start": 81.10262999999998,
-   "end": 92.39947799999997,
+   "start": 82.23829899999997,
+   "end": 93.53514699999997,
    "copy": "opencrabs"
   },
   {
    "chapter": 3,
    "id": "m3a",
-   "start": 93.79947799999998,
-   "end": 103.52512399999998,
+   "start": 94.93514699999997,
+   "end": 104.66079299999997,
    "copy": null
   },
   {
    "chapter": 3,
    "id": "m3b",
-   "start": 103.52512399999998,
-   "end": 110.17076999999998,
+   "start": 104.66079299999997,
+   "end": 111.30643899999997,
    "copy": null
   }
  ],
@@ -258,13 +258,13 @@
   {
    "card": "fda",
    "dur": 11.296847999999997,
-   "at": 81.10262999999998,
+   "at": 82.23829899999997,
    "chapter": 2
   },
   {
    "card": "next",
    "dur": 999,
-   "at": 93.79947799999998,
+   "at": 94.93514699999997,
    "chapter": 3
   }
  ],
@@ -320,24 +320,24 @@
   {
    "id": "m2e",
    "start": 73.96970499999998,
-   "dur": 6.582925,
-   "sub": "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running."
+   "dur": 7.718594,
+   "sub": "Your crab says hello first, no typing needed. Yours will be different, but OpenCrabs is installed and running."
   },
   {
    "id": "m2f",
-   "start": 81.10262999999998,
+   "start": 82.23829899999997,
    "dur": 10.746848,
    "sub": "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security."
   },
   {
    "id": "m3a",
-   "start": 93.79947799999998,
+   "start": 94.93514699999997,
    "dur": 9.175646,
    "sub": "From now on, just type opencrabs in any terminal. To update, type /evolve inside OpenCrabs. It handles the rest."
   },
   {
    "id": "m3b",
-   "start": 103.52512399999998,
+   "start": 104.66079299999997,
    "dur": 6.095646,
    "sub": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
   }
@@ -420,27 +420,32 @@
   },
   {
    "start": 73.96970499999998,
-   "end": 80.55262999999998,
-   "text": "Say hi. It answers. Yours will be different, but OpenCrabs is installed and running."
+   "end": 77.15628050458713,
+   "text": "Your crab says hello first, no typing needed."
   },
   {
-   "start": 81.10262999999998,
-   "end": 91.84947799999998,
+   "start": 77.15628050458713,
+   "end": 81.68829899999997,
+   "text": "Yours will be different, but OpenCrabs is installed and running."
+  },
+  {
+   "start": 82.23829899999997,
+   "end": 92.98514699999997,
    "text": "If macOS keeps asking whether Terminal can access data from other apps, give Terminal Full Disk Access once, in System Settings, Privacy and Security."
   },
   {
-   "start": 93.79947799999998,
-   "end": 97.84998839639637,
+   "start": 94.93514699999997,
+   "end": 98.98565739639636,
    "text": "From now on, just type opencrabs in any terminal."
   },
   {
-   "start": 97.84998839639637,
-   "end": 102.97512399999998,
+   "start": 98.98565739639636,
+   "end": 104.11079299999997,
    "text": "To update, type /evolve inside OpenCrabs. It handles the rest."
   },
   {
-   "start": 103.52512399999998,
-   "end": 109.62076999999998,
+   "start": 104.66079299999997,
+   "end": 110.75643899999997,
    "text": "Next up: connect Telegram, and chat with your crab from your phone. See you there."
   }
  ]
