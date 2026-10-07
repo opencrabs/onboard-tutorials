@@ -101,7 +101,7 @@
  },
  {
   "id": "c7c",
-  "text": "Home Base is where OpenCrabs keeps its files. The default is fine. Press Enter."
+  "text": "Home Base is the dot opencrabs folder in your home directory. That's always the default. Keep Seed template files ticked. Those files give your crab its personality, and you can change them later. Press Enter."
  },
  {
   "id": "c7d",

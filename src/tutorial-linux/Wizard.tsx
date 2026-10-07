@@ -56,8 +56,8 @@ const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
       return (<>
         <Row><S c={K.gray}>  Path: </S><S>/home/you/.opencrabs</S><S c={K.gold}>█</S></Row>
         <Row />
-        <Opt sel={false} label="Seed template files" />
-        <Row><S c={K.gray}>       SOUL.md, USER.md, ...</S></Row>
+        <Row><S c={K.gold}>  [x]</S><S c={K.gray}> Seed template files</S></Row>
+        <Row><S c={K.gray}>      SOUL.md, USER.md, ...</S></Row>
       </>);
     case "wiz-provider":
     case "wiz-key":
