@@ -105,7 +105,7 @@ const Side: React.FC<{ t: number }> = ({ t }) => {
       {copy && (
         <div style={{ background: C.panel, border: `2px solid ${O}66`, borderRadius: 18, padding: "20px 24px" }}>
           <div style={{ fontFamily: SANS, fontWeight: 800, fontSize: 20, color: O, letterSpacing: 2, marginBottom: 10 }}>COPY THIS</div>
-          <div style={{ fontFamily: MONO, fontSize: copy.length > 90 ? 18 : 21, lineHeight: 1.45, color: C.text, wordBreak: "break-all" }}>{copy}</div>
+          <div style={{ fontFamily: MONO, fontSize: copy.length > 200 ? 16 : copy.length > 90 ? 18 : 21, lineHeight: 1.45, color: C.text, wordBreak: "break-all", whiteSpace: "pre-wrap" }}>{copy}</div>
           <div style={{ fontFamily: SANS, fontSize: 17, color: C.dim, marginTop: 10 }}>also in the description</div>
         </div>
       )}
@@ -118,7 +118,7 @@ const TopBar: React.FC<{ t: number }> = ({ t }) => {
   return (
     <div style={{ position: "absolute", left: 40, right: 40, top: 26, display: "flex", justifyContent: "space-between", fontFamily: SANS, fontSize: 26, color: C.dim }}>
       <div><span style={{ color: O, fontWeight: 800 }}>🦀 OpenCrabs</span>  ·  Install on Ubuntu 24.04+</div>
-      {ch.n > 0 && <div><span style={{ color: C.text, fontWeight: 700 }}>Step {ch.n}/9</span>  ·  {ch.title}</div>}
+      {ch.n > 0 && <div><span style={{ color: C.text, fontWeight: 700 }}>Step {ch.n}/{T.chapters.length - 1}</span>  ·  {ch.title}</div>}
     </div>
   );
 };
@@ -154,7 +154,7 @@ const Title: React.FC<{ t: number }> = ({ t }) => {
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", fontFamily: SANS, textAlign: "center" }}>
       <div style={{ fontSize: 120 }}>🦀</div>
       <div style={{ fontSize: 84, fontWeight: 800, color: "#fff", letterSpacing: -1 }}>Install OpenCrabs on Ubuntu</div>
-      <div style={{ fontSize: 36, color: C.dim, marginTop: 16 }}>Ubuntu 24.04+ · from zero to your first chat</div>
+      <div style={{ fontSize: 36, color: C.dim, marginTop: 16 }}>Ubuntu 24.04+ · one paste, from zero to your first chat</div>
     </AbsoluteFill>
   );
 };

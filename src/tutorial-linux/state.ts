@@ -2,7 +2,7 @@
 import TL from "./timeline.json";
 
 export type Act = {
-  at: number; chapter: number; cmd?: string; type?: number; out?: string[]; gap?: number; pw?: boolean;
+  at: number; chapter: number; cmd?: string; paste?: boolean; type?: number; out?: string[]; gap?: number; pw?: boolean;
   prompt?: boolean; wait?: number; screen?: string; dur?: number; zoom?: string; note?: string; card?: string;
 };
 export type Line = { kind: "prompt" | "out" | "pw"; text: string; done?: boolean; cursor?: boolean };

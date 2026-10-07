@@ -1,8 +1,9 @@
-// Overlay cards shown over the terminal (need, pw, arm, notfound, key, errors, next).
+// Overlay cards shown over the terminal (need, block, arm, pw, key, again, errors, next).
 import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { C, MONO, SANS } from "../theme";
 import { beatAt } from "./state";
+import { BLOCK_LINES } from "./block";
 
 const O = "#d76414";
 const Mono: React.FC<{ children: React.ReactNode; c?: string }> = ({ children, c = C.text }) => (
@@ -22,8 +23,8 @@ const Key: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 const ERRORS = [
   { id: "c8b", err: "GLIBC_2.39 not found", fix: "System too old for this download → watch the older-systems video" },
-  { id: "c8c", err: "libgomp.so.1: cannot open shared object file", fix: "Helpers missing → redo chapter 2" },
-  { id: "c8d", err: "gzip: unexpected end of file", fix: "TAG was empty → redo chapter 3, then download again" },
+  { id: "p4c", err: "libgomp.so.1: cannot open shared object file", fix: "Helpers missing → paste the install block again" },
+  { id: "p4d", err: "gzip: unexpected end of file", fix: "Version lookup came back empty → wait a moment, paste the block again" },
 ];
 
 const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
@@ -34,7 +35,20 @@ const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
         <Item icon="🐧">Ubuntu <b>24.04 or newer</b>, 64-bit</Item>
         <Item icon="🌐">An internet connection</Item>
         <Item icon="🔑">A key or subscription from an AI provider</Item>
-        <Item icon="⏱" c={C.dim}>About 5 minutes</Item>
+        <Item icon="⏱" c={C.dim}>About 2 minutes, one paste</Item>
+      </>);
+    case "block":
+      return (<>
+        <H>One paste installs it</H>
+        <Mono>{BLOCK_LINES.map((l, i) => <div key={i} style={{ fontSize: 21 }}>{l}</div>)}</Mono>
+        <div style={{ fontFamily: SANS, fontSize: 28, color: C.dim, marginTop: 22 }}>docs.opencrabs.com → Installation → Linux (amd64) · also in the description</div>
+      </>);
+    case "arm":
+      return (<>
+        <H>ARM machine? Use the arm64 block</H>
+        <Item icon="↔">Same block, with <b style={{ color: C.red }}>amd64</b> swapped for <b style={{ color: C.green }}>arm64</b>:</Item>
+        <Mono>…/opencrabs-${"{TAG}"}-linux-<span style={{ color: C.green, fontWeight: 700 }}>arm64</span>.tar.gz</Mono>
+        <div style={{ fontFamily: SANS, fontSize: 28, color: C.dim, marginTop: 22 }}>docs.opencrabs.com → Installation → Linux (arm64)</div>
       </>);
     case "pw":
       return (<>
@@ -42,25 +56,19 @@ const Body: React.FC<{ id: string; t: number }> = ({ id, t }) => {
         <Item icon="👀">No dots, no stars. That's normal on Linux.</Item>
         <Item icon="⏎">Type it, then press <Key>Enter</Key></Item>
       </>);
-    case "arm":
-      return (<>
-        <H>ARM machine? (uname said aarch64)</H>
-        <Item icon="↔">Swap <b style={{ color: C.red }}>amd64</b> for <b style={{ color: C.green }}>arm64</b>:</Item>
-        <Mono>curl -fsSL "https://github.com/opencrabs/opencrabs/releases/download/${"{TAG}"}/opencrabs-${"{TAG}"}-linux-<span style={{ color: C.green, fontWeight: 700 }}>arm64</span>.tar.gz" | tar xz</Mono>
-      </>);
-    case "notfound":
-      return (<>
-        <H><span style={{ fontFamily: MONO, color: C.red, fontSize: 40 }}>opencrabs: command not found</span>?</H>
-        <Item icon="1">Open a <b>new terminal window</b> and try again</Item>
-        <Item icon="2">Still not found? Run this, then try once more:</Item>
-        <Mono c={C.green}>export PATH="$HOME/.local/bin:$PATH"</Mono>
-      </>);
     case "key":
       return (<>
         <H>Your key stays hidden</H>
         <Item icon="🔒">It shows as <span style={{ fontFamily: MONO, color: "#e0a84a" }}>**********</span> while you paste</Item>
         <Item icon="🚫">Never share your key, never post it in a chat</Item>
         <Item icon="🎬" c={C.dim}>No real key appears anywhere in this video</Item>
+      </>);
+    case "again":
+      return (<>
+        <H>Next time</H>
+        <Item icon="⌨">Open a terminal in your home folder and run:</Item>
+        <Mono c={C.green}>./opencrabs</Mono>
+        <Item icon="🦀" c={C.dim}>{" "}Your setup and chats are saved in ~/.opencrabs</Item>
       </>);
     case "errors": {
       const cur = beatAt(t).id;

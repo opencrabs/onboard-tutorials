@@ -3,7 +3,7 @@
 // and the mixed VO track public/audio/tutorial-linux/mix.wav (-16 LUFS).
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
-import { CHAPTERS, CMD, PROMPT } from "./episode.mjs";
+import { BLOCK, CHAPTERS, CMD, PROMPT } from "./episode.mjs";
 
 const ROOT = new URL("../../", import.meta.url).pathname;
 const AUD = ROOT + "public/audio/tutorial-linux/";
@@ -31,7 +31,7 @@ for (const ch of CHAPTERS) {
     let a = start;
     for (const act of b.act ?? []) {
       const rec = { ...act, at: a, chapter: ch.n };
-      if (act.cmd) { rec.type = typeDur(act.cmd); a += rec.type + 0.35; }
+      if (act.cmd) { rec.type = act.paste ? 0.12 : typeDur(act.cmd); a += rec.type + (act.paste ? 0.25 : 0.35); }
       else if (act.out) { const g = act.gap ?? 0.07; rec.gap = g; a += act.out.length * g + 0.15; }
       else if (act.pw) a += 1.2;
       else if (act.wait) a += act.wait;
@@ -52,6 +52,7 @@ for (const b of beats) {
   if (b.copy) continue;
   const ch = chapters.find((c) => c.n === b.chapter);
   if (ch.copy === null) continue;
+  if (typeof ch.copy === "string") { b.copy = ch.copy; continue; }
   const cmds = actions.filter((a) => a.cmd && a.chapter === b.chapter && a.at < b.end);
   b.copy = cmds.length ? cmds[cmds.length - 1].cmd : ch.copy ?? null;
 }
@@ -75,7 +76,7 @@ for (const v of vo) {
   }
 }
 
-fs.writeFileSync(ROOT + "src/tutorial-linux/timeline.json", JSON.stringify({ fps: 30, total, prompt: PROMPT, chapters, beats, actions, vo, cues }, null, 1));
+fs.writeFileSync(ROOT + "src/tutorial-linux/timeline.json", JSON.stringify({ fps: 30, total, prompt: PROMPT, block: BLOCK, chapters, beats, actions, vo, cues }, null, 1));
 
 const ts = (x, sep = ",") => {
   const ms = Math.round(x * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, s = Math.floor(ms / 1000) % 60;
@@ -94,20 +95,11 @@ ${chapterList}
 Needs Ubuntu 24.04 or newer (glibc 2.39+), 64-bit.
 
 1. Check your system
-${block(CMD.uname + "\n" + CMD.ldd)}
-2. Helpers
-${block(CMD.apt)}
-3. Find the latest version
-${block(CMD.tag + "\n" + CMD.echo)}
-4. Download (ARM: replace amd64 with arm64)
-${block(CMD.dl)}
-5. Verify checksum (optional)
-${block(CMD.getTgz + "\n" + CMD.getSums + "\n" + CMD.check + "\n" + CMD.untar)}
-6. Put it on your PATH
-${block(CMD.mv + "\n" + CMD.ver)}
-If "command not found": open a new terminal, or
-${block(CMD.path)}
-7. First run
+${block(CMD.ldd)}
+2. Paste the install block (Linux amd64)
+${block(BLOCK)}
+ARM (arm64): use the same block with amd64 replaced by arm64, or copy "Linux (arm64)" from the docs.
+3. Next time, start it from your home folder
 ${block(CMD.run)}
 
 Docs: https://docs.opencrabs.com/getting-started/installation.html

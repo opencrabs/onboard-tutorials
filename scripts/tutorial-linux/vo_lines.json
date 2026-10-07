@@ -1,7 +1,7 @@
 [
  {
   "id": "c0a",
-  "text": "In this video, we'll install OpenCrabs on Ubuntu, from zero to your first chat. It takes about five minutes."
+  "text": "In this video, we'll install OpenCrabs on Ubuntu with a single paste, from zero to your first chat."
  },
  {
   "id": "c0b",
@@ -12,88 +12,28 @@
   "text": "Open a terminal. On the Ubuntu desktop, press Control, Alt and T."
  },
  {
-  "id": "c1a",
-  "text": "First, two quick checks. Your CPU type decides which file you download."
- },
- {
-  "id": "c1b",
-  "text": "x86_64 means you want the amd64 download. On an ARM machine you'll see aarch64 instead, and you want arm64."
- },
- {
   "id": "c1c",
-  "text": "Next, your glibc version. It must be 2.39 or newer."
+  "text": "First, one quick check. Your glibc version must be 2.39 or newer."
  },
  {
   "id": "c1d",
   "text": "Here it says 2.39, so we're good. Older than that? This download won't run there, so watch the older systems video instead."
  },
  {
-  "id": "c2a",
-  "text": "Now install three small helpers. curl downloads files, jq reads the release info, and libgomp is a library OpenCrabs needs to run."
+  "id": "p2a",
+  "text": "Now the whole install is one paste. Copy this block from the docs or the description, paste it into the terminal, and press Enter."
+ },
+ {
+  "id": "p2b",
+  "text": "On an ARM machine, copy the arm64 block from the docs instead. It's the same, with arm64 in the file name."
  },
  {
   "id": "c2b",
   "text": "Ubuntu asks for your password. Nothing appears while you type it. That's normal. Type it and press Enter."
  },
  {
-  "id": "c2c",
-  "text": "Ubuntu fetches the package lists, then installs the helpers."
- },
- {
-  "id": "c2d",
-  "text": "When you're back at the prompt, the helpers are ready."
- },
- {
-  "id": "c3a",
-  "text": "Next, ask GitHub for the newest release, and keep its version number in a variable called TAG."
- },
- {
-  "id": "c3b",
-  "text": "Print it to check. If you see a version number, like v0.5.4, you're good."
- },
- {
-  "id": "c3c",
-  "text": "If the line comes back empty, just run the TAG command again before you move on."
- },
- {
-  "id": "c4a",
-  "text": "Now download and unpack it in one line. The TAG variable fills in the version for you."
- },
- {
-  "id": "c4b",
-  "text": "List the folder. You get two files: opencrabs itself, and rtk, a small helper it ships with."
- },
- {
-  "id": "c4c",
-  "text": "On an ARM machine, the one that said aarch64, swap amd64 for arm64 in the file name."
- },
- {
-  "id": "c5a",
-  "text": "This step is optional, but it's a good habit. Download the archive and the published list of checksums."
- },
- {
-  "id": "c5b",
-  "text": "Then let sha256sum compare them. OK means your file is exactly what was released."
- },
- {
-  "id": "c5c",
-  "text": "Unpack this checked copy, and you're set."
- },
- {
-  "id": "c6a",
-  "text": "Now move both files into a folder on your path, so you can run OpenCrabs from anywhere. No sudo needed."
- },
- {
-  "id": "c6b",
-  "text": "Check that it works."
- },
- {
-  "id": "c6c",
-  "text": "If your terminal says command not found, open a new terminal window and try again. Still not found? Run this export line, then try once more."
- },
- {
-  "id": "c7a",
-  "text": "Time for the first run. Type opencrabs and press Enter."
+  "id": "p2c",
+  "text": "Then it does everything in one go. It installs three small helpers, finds the newest release, downloads it, and starts OpenCrabs."
  },
  {
   "id": "c7b",
@@ -136,6 +76,10 @@
   "text": "It answers. Your reply will be different, but that's it. OpenCrabs is installed and running."
  },
  {
+  "id": "p3a",
+  "text": "Next time, start it the same way. Open a terminal in your home folder, and type dot slash opencrabs, then press Enter."
+ },
+ {
   "id": "c8a",
   "text": "If something goes wrong, here are the three errors people hit most, and the fix for each."
  },
@@ -144,12 +88,12 @@
   "text": "GLIBC 2.39 not found means your system is too old for this download. Watch the older systems video instead."
  },
  {
-  "id": "c8c",
-  "text": "libgomp.so.1, cannot open shared object file, means the helpers are missing. Go back to chapter two."
+  "id": "p4c",
+  "text": "libgomp.so.1, cannot open shared object file, means the helpers are missing. Paste the install block again."
  },
  {
-  "id": "c8d",
-  "text": "gzip, unexpected end of file, means TAG was empty. Run chapter three again, then download again."
+  "id": "p4d",
+  "text": "gzip, unexpected end of file, means the version lookup came back empty. Wait a moment, then paste the block again."
  },
  {
   "id": "c9a",
