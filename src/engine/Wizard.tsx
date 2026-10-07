@@ -1,5 +1,6 @@
 // The OpenCrabs setup wizard and first chat, redrawn from src/tui/onboarding_render.rs
 // (step titles/subtitles from onboarding/types.rs, health checks from onboarding/config.rs).
+// The screens are the same on every OS; only the home path and the daemon line differ (WizardOS).
 import React from "react";
 import { MONO } from "../theme";
 
@@ -47,7 +48,9 @@ const ZAI = PROVIDERS.indexOf("z.ai");
 const MODELS = ["glm-5.3", "glm-5.3-flash", "glm-5.2"];
 const CHECKS = ["API Key Present", "Config File", "Workspace Directory", "Template Files"];
 
-const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
+export type WizardOS = { home: string; daemon: string };
+
+const Body: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }) => {
   switch (id) {
     case "wiz-mode":
       return (<>
@@ -57,7 +60,7 @@ const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
       </>);
     case "wiz-home":
       return (<>
-        <Row><S c={K.gray}>  Path: </S><S>/home/you/.opencrabs</S><S c={K.gold}>█</S></Row>
+        <Row><S c={K.gray}>  Path: </S><S>{os.home}</S><S c={K.gold}>█</S></Row>
         <Row />
         <Row><S c={K.gold}>  [x]</S><S c={K.gray}> Seed template files</S></Row>
         <Row><S c={K.gray}>      SOUL.md, USER.md, ...</S></Row>
@@ -96,7 +99,7 @@ const Body: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
     }
     case "wiz-daemon":
       return (<>
-        <Row><S c={K.gray}>  Install as systemd user unit ?</S></Row>
+        <Row><S c={K.gray}>{"  " + os.daemon}</S></Row>
         <Row />
         <Opt sel={false} mark="()" label="Yes, install daemon" />
         <Opt sel mark="()" label="Skip for now" />
@@ -139,7 +142,7 @@ const Keys: React.FC<{ keys: [string, string][] }> = ({ keys }) => (
   <Row>{keys.map(([k, v]) => <React.Fragment key={k}><S c={K.user} b>{`[${k}] `}</S><S c={K.text}>{v + "  "}</S></React.Fragment>)}</Row>
 );
 
-export const Wizard: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
+export const Wizard: React.FC<{ id: string; dt: number; os: WizardOS }> = ({ id, dt, os }) => {
   const base: React.CSSProperties = { position: "absolute", inset: 0, background: K.bg, fontFamily: MONO, fontSize: 24, lineHeight: "34px", color: K.text };
   if (id === "chat") return <Chat dt={dt} />;
   if (id === "wiz-done") {
@@ -149,7 +152,7 @@ export const Wizard: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
           <Row /><Row /><Row><S c={K.gold} b>Setup complete!</S></Row><Row />
           <Row><S c={K.gray}>  Provider: </S><S b>z.ai</S></Row>
           <Row><S c={K.gray}>  Model:    </S><S b>{MODELS[0]}</S></Row>
-          <Row><S c={K.gray}>  Workspace:</S><S> /home/you/.opencrabs</S></Row>
+          <Row><S c={K.gray}>  Workspace:</S><S>{" " + os.home}</S></Row>
           <Row /><Row /><Row><S c={K.gold} b><i>Entering OpenCrabs...</i></S></Row>
         </Frame>
       </div>
@@ -167,7 +170,7 @@ export const Wizard: React.FC<{ id: string; dt: number }> = ({ id, dt }) => {
         <Row><S c={K.gold} b>{st.title}</S></Row>
         <Row><S c={K.gray}>{st.sub}</S></Row>
         <Row />
-        <Body id={id} dt={dt} />
+        <Body id={id} dt={dt} os={os} />
       </Frame>
     </div>
   );
