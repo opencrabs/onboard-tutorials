@@ -1,0 +1,21 @@
+{
+ "docs_repo": "https://github.com/adolfousier/opencrabs.com",
+ "videos": [
+  {
+   "id": "L1",
+   "episode": "tutorial-linux",
+   "title": "Install OpenCrabs on Ubuntu 24.04+",
+   "source": "docs/src/getting-started/installation.md",
+   "anchor": "linux-amd64",
+   "pinned_sha": "f44b094"
+  },
+  {
+   "id": "L2",
+   "episode": "tutorial-macos",
+   "title": "Install OpenCrabs on macOS",
+   "source": "docs/src/getting-started/installation.md",
+   "anchor": "option-1-homebrew-recommended-on-macos-and-linux",
+   "pinned_sha": "f44b094"
+  }
+ ]
+}

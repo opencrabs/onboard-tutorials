@@ -8,7 +8,8 @@
     "fit": "bash scripts/engine/fit.sh",
     "timeline": "node scripts/engine/build_timeline.mjs",
     "probe": "node scripts/engine/probe.mjs",
-    "render": "remotion render TutorialLinuxL1 out/tutorial-linux/L1-ubuntu.mp4"
+    "render": "remotion render TutorialLinuxL1 out/tutorial-linux/L1-ubuntu.mp4",
+    "stale": "node scripts/engine/stale.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.280",

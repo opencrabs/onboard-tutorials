@@ -20,3 +20,7 @@ npm run probe -- <CompositionId> out/<episode>/probe 0 300 900                  
 ```
 
 `scripts/stt.sh <file>` runs any line or the final mp4 back through the configured Groq whisper.
+
+## Keeping videos in sync with the docs
+
+`videos.json` maps each episode to the docs page section it teaches and the docs commit it was scripted against. `npm run stale` (with `DOCS_REPO` pointing at a local clone of the docs repo) compares that section at the pinned commit with `origin/main` and exits 1 when an episode is stale or its pinned docs aren't live yet. After re-scripting an episode, move its `pinned_sha` to the docs commit it now matches.
