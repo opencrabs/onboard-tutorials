@@ -1,7 +1,7 @@
 // L1 "Install OpenCrabs on Ubuntu 24.04": the single source for VO, commands, scripted output and screens.
 // Install is the docs' one-paste Linux amd64 block (opencrabs.com commits a781578 + 55fc17d).
 // Output lines were captured from a clean ubuntu:24.04 amd64 container on 2026-10-06 (opencrabs itself never ran).
-// build_timeline.mjs turns this into absolute times from the measured VO durations.
+// scripts/engine/build_timeline.mjs tutorial-linux turns this into absolute times from the measured VO durations.
 
 export const PROMPT = "you@ubuntu:~$ ";
 const REL = "https://github.com/opencrabs/opencrabs/releases/download/${TAG}";
@@ -105,3 +105,31 @@ export const CHAPTERS = [
 ];
 
 export const CHECKLIST = CHAPTERS.map((c) => c.title);
+
+// code names the .srt; extra lands in timeline.json for the cards; description is the YouTube description.
+const block = (s) => "```bash\n" + s + "\n```";
+export const EPISODE = {
+  code: "L1",
+  extra: { block: BLOCK, sudo: CMD.sudo },
+  description: ({ chapterList }) => `# Install OpenCrabs on Ubuntu 24.04+
+
+Chapters:
+${chapterList}
+
+Needs Ubuntu 24.04 or newer (glibc 2.39+), 64-bit.
+
+1. Skip password prompts (recommended; skip it if you are already root)
+${block(CMD.sudo)}
+2. Paste the install block (Linux amd64)
+${block(BLOCK)}
+ARM (arm64): use the same block with amd64 replaced by arm64, or copy "Linux (arm64)" from the docs.
+3. Next time, start it from your home folder
+${block(CMD.run)}
+
+Troubleshooting:
+- \`gzip: unexpected end of file\`: the version lookup came back empty. Wait a moment, then paste the block again.
+- \`libgomp.so.1: cannot open shared object file\`: the helpers did not install. Paste the block again.
+
+Docs: https://docs.opencrabs.com/getting-started/installation.html
+`,
+};

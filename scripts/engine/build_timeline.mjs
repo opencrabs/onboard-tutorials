@@ -1,13 +1,15 @@
-// Turns episode.mjs + the measured VO durations into absolute times.
-// Writes src/tutorial-linux/timeline.json, out/tutorial-linux/{L1.srt,chapters.txt,description.md}
-// and the mixed VO track public/audio/tutorial-linux/mix.wav (-16 LUFS).
+// Turns an episode's episode.mjs + the measured VO durations into absolute times: node scripts/engine/build_timeline.mjs <episode>
+// Writes src/<episode>/timeline.json, out/<episode>/{<code>.srt,chapters.txt,description.md}
+// and the mixed VO track public/audio/<episode>/mix.wav (-16 LUFS).
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
-import { BLOCK, CHAPTERS, CMD, PROMPT } from "./episode.mjs";
 
+const KEY = process.argv[2];
+if (!KEY) throw new Error("usage: build_timeline.mjs <episode>, e.g. tutorial-linux");
 const ROOT = new URL("../../", import.meta.url).pathname;
-const AUD = ROOT + "public/audio/tutorial-linux/";
-const OUT = ROOT + "out/tutorial-linux/";
+const { CHAPTERS, EPISODE: EP, PROMPT } = await import(`${ROOT}scripts/${KEY}/episode.mjs`);
+const AUD = ROOT + `public/audio/${KEY}/`;
+const OUT = ROOT + `out/${KEY}/`;
 fs.mkdirSync(OUT, { recursive: true });
 
 const dur = (id) => Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", `${AUD}vo_${id}.wav`]).toString().trim());
@@ -79,38 +81,17 @@ for (const v of vo) {
   }
 }
 
-fs.writeFileSync(ROOT + "src/tutorial-linux/timeline.json", JSON.stringify({ fps: 30, total, prompt: PROMPT, block: BLOCK, sudo: CMD.sudo, chapters, beats, actions, vo, cues }, null, 1));
+fs.writeFileSync(ROOT + `src/${KEY}/timeline.json`, JSON.stringify({ fps: 30, total, prompt: PROMPT, ...EP.extra, chapters, beats, actions, vo, cues }, null, 1));
 
 const ts = (x, sep = ",") => {
   const ms = Math.round(x * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, s = Math.floor(ms / 1000) % 60;
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}${sep}${String(ms % 1000).padStart(3, "0")}`;
 };
-fs.writeFileSync(OUT + "L1.srt", cues.map((c, i) => `${i + 1}\n${ts(c.start)} --> ${ts(c.end)}\n${c.text}\n`).join("\n"));
+fs.writeFileSync(OUT + `${EP.code}.srt`, cues.map((c, i) => `${i + 1}\n${ts(c.start)} --> ${ts(c.end)}\n${c.text}\n`).join("\n"));
 const mmss = (x) => `${Math.floor(x / 60)}:${String(Math.floor(x % 60)).padStart(2, "0")}`;
 const chapterList = chapters.map((c) => `${mmss(c.n === 0 ? 0 : c.start)} ${c.n === 0 ? "Intro" : `${c.n}. ${c.title}`}`).join("\n");
 fs.writeFileSync(OUT + "chapters.txt", chapterList + "\n");
-const block = (s) => "```bash\n" + s + "\n```";
-fs.writeFileSync(OUT + "description.md", `# Install OpenCrabs on Ubuntu 24.04+
-
-Chapters:
-${chapterList}
-
-Needs Ubuntu 24.04 or newer (glibc 2.39+), 64-bit.
-
-1. Skip password prompts (recommended; skip it if you are already root)
-${block(CMD.sudo)}
-2. Paste the install block (Linux amd64)
-${block(BLOCK)}
-ARM (arm64): use the same block with amd64 replaced by arm64, or copy "Linux (arm64)" from the docs.
-3. Next time, start it from your home folder
-${block(CMD.run)}
-
-Troubleshooting:
-- \`gzip: unexpected end of file\`: the version lookup came back empty. Wait a moment, then paste the block again.
-- \`libgomp.so.1: cannot open shared object file\`: the helpers did not install. Paste the block again.
-
-Docs: https://docs.opencrabs.com/getting-started/installation.html
-`);
+fs.writeFileSync(OUT + "description.md", EP.description({ chapterList }));
 
 // mixed VO track
 const inputs = vo.flatMap((v) => ["-i", `${AUD}vo_${v.id}.wav`]);
