@@ -4,20 +4,8 @@
   "text": "In this video, we'll install OpenCrabs on Ubuntu with a single paste, from zero to your first chat."
  },
  {
-  "id": "c0b",
-  "text": "You need Ubuntu 24.04 or newer on a 64-bit machine, an internet connection, and a key or subscription from an AI provider."
- },
- {
   "id": "c0c",
   "text": "Open a terminal. On the Ubuntu desktop, press Control, Alt and T."
- },
- {
-  "id": "c1c",
-  "text": "First, one quick check. Your glibc version must be 2.39 or newer."
- },
- {
-  "id": "c1d",
-  "text": "Here it says 2.39, so we're good. Older than that isn't supported. OpenCrabs only ships builds for 2.39 and newer."
  },
  {
   "id": "s2a",
