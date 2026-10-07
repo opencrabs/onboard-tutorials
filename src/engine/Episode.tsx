@@ -166,7 +166,7 @@ const Hook: React.FC<{ t: number }> = ({ t }) => {
     <div style={{ position: "absolute", left: TERM.left, top: TERM.top, width: TERM.width, height: TERM.height, borderRadius: 14, overflow: "hidden", background: cfg.skin.bg, border: `1px solid ${cfg.skin.border}`, boxShadow: "0 30px 90px rgba(0,0,0,.55)", opacity: o }}>
       <cfg.skin.bar title={cfg.skin.title} height={TERM.bar} />
       <div style={{ position: "absolute", top: TERM.bar, left: 0, right: 0, bottom: 0 }}><Wizard id={h.screen} dt={h.dt} os={cfg.os} /></div>
-      <div style={{ position: "absolute", left: 24, top: TERM.bar + 18, background: O, color: "#fff", fontFamily: SANS, fontWeight: 800, fontSize: 28, padding: "8px 22px", borderRadius: 24 }}>where you'll be in 2 minutes</div>
+      <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", top: TERM.bar + 80, background: O, color: "#fff", fontFamily: SANS, fontWeight: 800, fontSize: 28, padding: "8px 22px", borderRadius: 24 }}>where you'll be in 2 minutes</div>
       <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 150, opacity: interpolate(t, [h.until - 0.9, h.until - 0.5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>⏪</div>
     </div>
   );
